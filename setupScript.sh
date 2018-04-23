@@ -197,7 +197,9 @@ if [ $CKB = "yes" ]; then
     sudo apt-get install build-essential cmake libudev-dev qt5-default zlib1g-dev libappindicator-dev libpulse-dev libquazip5-dev -y
 	git clone https://github.com/ckb-next/ckb-next
 	sudo chmod -R 777 ckb-next/
-	sudo bash ./ckb-next/quickinstall
+    cd ckb-next/
+    sudo ./quickinstall
+    cd ..
 else
 	echo "CKB-next install not selected. Continuing..."
 fi
