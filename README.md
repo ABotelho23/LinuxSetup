@@ -1,2 +1,2 @@
 # LinuxSetup
-My personal script for settings up new Ubuntu installs. 
+My personal script for setting up new Ubuntu installs. 
