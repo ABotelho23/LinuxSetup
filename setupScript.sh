@@ -43,6 +43,14 @@ else
 CKB="no"
 fi
 
+read -r -p "Install Nvidia graphics driver? [y/N] " response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
+then
+NVIDIA="yes"
+else
+NVIDIA="no"
+fi
+
 #enable 32-bit
 sudo dpkg --add-architecture i386
 
@@ -194,6 +202,12 @@ else
 	echo "CKB-next install not selected. Continuing..."
 fi
 
+if [ $CKB = "yes" ]; then
+    echo "Nvidia graphics driver install selected. Installing."
+    sudo apt-get install nvidia-current-updates
+else
+	echo "Nvidia graphics driver install not selected. Continuing..."
+fi
 
 #fix shitty libinput by replacing it...
 #sudo apt-get install xserver-xorg-input-synaptics -y
