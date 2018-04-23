@@ -9,6 +9,8 @@ read -r -p "Are you sure you want to run this script? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
 
+echo "Starting script. Please do not stop this script once it has started."
+
 read -r -p "Install Insync? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
