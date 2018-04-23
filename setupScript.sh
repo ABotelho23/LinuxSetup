@@ -155,9 +155,9 @@ apm install language-powershell
 
 
 #gdebi installs
-#sudo gdebi teamviewer.deb -n #NOT READY TO TEST YET
-#sudo gdebi discord .deb -n #NOT READY TO TEST YET
-#sudo gdebi skype.deb -n #NOT READY TO TEST YET
+sudo gdebi teamviewer.deb -n
+sudo gdebi discord .deb -n
+sudo gdebi skype.deb -n
 
 #check if installs insync
 if [ $INSYNC = "yes" ]; then
