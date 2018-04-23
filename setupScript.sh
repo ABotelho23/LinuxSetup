@@ -158,6 +158,7 @@ apm install language-powershell
 sudo gdebi teamviewer.deb -n
 sudo gdebi discord.deb -n
 sudo gdebi skype.deb -n
+sudo gdebi google-play-music-desktop-player.deb -n
 
 #check if installs insync
 if [ $INSYNC = "yes" ]; then
