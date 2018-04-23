@@ -164,7 +164,7 @@ if [ $INSYNC = "yes" ]; then
     echo "Insync install selected. Installing."
     sudo gdebi insync.deb -n
 else
-	echo "Insync install not selected. Continuing..."
+	echo "Insync install not selected. Skipping..."
 fi
 
 #check if installs google play music manager
@@ -174,7 +174,7 @@ if [ $MUSICMANAGER = "yes" ]; then
 	sudo apt-get update
 	sudo apt-get install google-musicmanager-beta
 else
-	echo "Google Play Music Manager install not selected. Continuing..."
+	echo "Google Play Music Manager install not selected. Skipping..."
 fi
 
 #check if installs openrazer
@@ -189,7 +189,7 @@ if [ $OPENRAZER = "yes" ]; then
 	sudo apt install polychromatic -y
 	sudo gpasswd -a $USER plugdev
 else
-	echo "Openrazer/Polychromatic install not selected. Continuing..."
+	echo "Openrazer/Polychromatic install not selected. Skipping..."
 fi
 
 if [ $CKB = "yes" ]; then
@@ -206,7 +206,7 @@ if [ $CKB = "yes" ]; then
     echo "Nvidia graphics driver install selected. Installing."
     sudo apt-get install nvidia-current-updates
 else
-	echo "Nvidia graphics driver install not selected. Continuing..."
+	echo "Nvidia graphics driver install not selected. Skipping..."
 fi
 
 #fix shitty libinput by replacing it...
