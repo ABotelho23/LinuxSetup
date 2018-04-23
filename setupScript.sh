@@ -156,7 +156,7 @@ apm install language-powershell
 
 #gdebi installs
 sudo gdebi teamviewer.deb -n
-sudo gdebi discord .deb -n
+sudo gdebi discord.deb -n
 sudo gdebi skype.deb -n
 
 #check if installs insync
