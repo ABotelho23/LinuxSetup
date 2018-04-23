@@ -44,13 +44,13 @@ fi
 #enable 32-bit
 sudo dpkg --add-architecture i386
 
-#do updates and software upgrades
-sudo apt-get update
-sudo apt-get upgrade -y
-
 #removals
 sudo apt-get remove chromium-browser -y
 sudo apt-get remove nautilus -y
+
+#do updates and software upgrades
+sudo apt-get update
+sudo apt-get upgrade -y
 
 #installs
 sudo apt-get install gdebi -y
