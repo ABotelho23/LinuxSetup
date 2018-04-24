@@ -155,15 +155,15 @@ apm install language-powershell
 
 
 #gdebi installs
-sudo gdebi teamviewer.deb -n
-sudo gdebi discord.deb -n
-sudo gdebi skype.deb -n
-sudo gdebi google-play-music-desktop-player.deb -n
+sudo gdebi ./deb/teamviewer.deb -n
+sudo gdebi ./deb/discord.deb -n
+sudo gdebi ./deb/skype.deb -n
+sudo gdebi ./deb/google-play-music-desktop-player.deb -n
 
 #check if installs insync
 if [ $INSYNC = "yes" ]; then
     echo "Insync install selected. Installing."
-    sudo gdebi insync.deb -n
+    sudo gdebi ./deb/insync.deb -n
 else
 	echo "Insync install not selected. Skipping..."
 fi
