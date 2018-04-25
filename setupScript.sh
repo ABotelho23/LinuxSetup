@@ -158,25 +158,25 @@ apm install language-powershell
 sudo mkdir deb
 
 #skype
-wget https://go.skype.com/skypeforlinux-64.deb -O ./deb/skype.deb
+wget --show-progress https://go.skype.com/skypeforlinux-64.deb -O ./deb/skype.deb
 sudo gdebi ./deb/skype.deb -n
 
 #discord
-wget https://discordapp.com/api/download?platform=linux&format=deb -O ./deb/discord.deb
-sudo gdebi ./deb/discord.deb -n
+#wget --show-progress https://discordapp.com/api/download?platform=linux&format=deb -O ./deb/discord.deb
+#sudo gdebi ./deb/discord.deb -n
 
 #google play music desktop player
-wget https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-/releases/download/v4.5.0/google-play-music-desktop-player_4.5.0_amd64.deb -o ./deb/google-play-music-desktop-player.deb
+wget --show-progress https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-/releases/download/v4.5.0/google-play-music-desktop-player_4.5.0_amd64.deb -o ./deb/google-play-music-desktop-player.deb
 sudo gdebi ./deb/google-play-music-desktop-player.deb -n
 
 #teamviewer
-wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb -O ./deb/teamviewer.deb
+wget --show-progress https://download.teamviewer.com/download/linux/teamviewer_amd64.deb -O ./deb/teamviewer.deb
 sudo gdebi ./deb/teamviewer.deb -n
 
 #check if installs insync
 if [ $INSYNC = "yes" ]; then
     echo "Insync install selected. Installing."
-    wget https://d2t3ff60b2tol4.cloudfront.net/builds/insync_1.4.5.37069-artful_amd64.deb -O ./deb/insync.deb
+    wget --show-progress https://d2t3ff60b2tol4.cloudfront.net/builds/insync_1.4.5.37069-artful_amd64.deb -O ./deb/insync.deb
     sudo gdebi ./deb/insync.deb -n
 else
 	echo "Insync install not selected. Skipping..."
