@@ -224,6 +224,16 @@ gsettings set org.cinnamon.desktop.default-applications.terminal exec tilix
 #make Nemo default FM
 xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
 
+#download and install Plank themes
+git clone https://github.com/LinxGem33/Plank-Themes
+sudo cp -r ./Plank-Themes/'Plank Themes'/* /usr/share/plank/themes
+
+git clone https://github.com/erikdubois/plankthemes
+sudo cp -r ./plankthemes/* /usr/share/plank/themes
+sudo rm -r /usr/share/plank/themes/setup-git-v1.sh
+sudo rm -r /usr/share/plank/themes/git-v1.sh
+sudo rm -r /usr/share/plank/themes/README.md
+
 #wireshark install near the end cause graphical
 sudo apt-get install wireshark -y
 sudo dpkg-reconfigure wireshark-common
