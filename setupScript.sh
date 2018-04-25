@@ -122,7 +122,7 @@ sudo apt-get install openshot -y
 sudo apt-get install blender -y
 
 #new ppa/repo adds
-#sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut #NO RELEASE FILE YET
+#sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut #NO RELEASE FILE YET, remove openshot install when enabled
 #sudo add-apt-repository ppa:gezakovacs/ppa -y #unetbootin #NO RELEASE FILE YET
 #sudo add-apt-repository ppa:nilarimogard/webupd8 -y #woeusb #NO RELEASE FILE YET
 sudo add-apt-repository ppa:notepadqq-team/notepadqq -y #notepadqq
@@ -138,7 +138,7 @@ sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable
 sudo apt-get update
 
 #new ppa/repo installs
-#sudo apt-get install shotcut -y #NO RELEASE FILE YET
+#sudo apt-get install shotcut -y #NO RELEASE FILE YET, remove openshot install when enabled
 #sudo apt-get install unetbootin -y #NO RELEASE FILE YET
 #sudo apt-get install woeusb -y #NO RELEASE FILE YET
 sudo apt-get install notepadqq -y
