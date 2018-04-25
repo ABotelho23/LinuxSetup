@@ -132,7 +132,7 @@ sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y
 #sudo add-apt-repository ppa:nilarimogard/webupd8 -y #woeusb #NO RELEASE FILE YET
 sudo apt-add-repository ppa:maarten-fonville/android-studio -y
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - #google pub key
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' #google chrome repo
+sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' #google chrome repo
 
 #update after repo adds
 sudo apt-get update
