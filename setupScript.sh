@@ -137,7 +137,7 @@ sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable
 #update after repo adds
 sudo apt-get update
 
-#new ppa installs
+#new ppa/repo installs
 #sudo apt-get install shotcut -y #NO RELEASE FILE YET
 #sudo apt-get install unetbootin -y #NO RELEASE FILE YET
 #sudo apt-get install woeusb -y #NO RELEASE FILE YET
