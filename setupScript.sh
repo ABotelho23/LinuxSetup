@@ -242,6 +242,7 @@ xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
 git clone https://github.com/LinxGem33/Plank-Themes
 sudo cp -r ./Plank-Themes/'Plank Themes'/* /usr/share/plank/themes
 
+#more plank themes
 git clone https://github.com/erikdubois/plankthemes
 sudo cp -r ./plankthemes/* /usr/share/plank/themes
 sudo rm -r /usr/share/plank/themes/setup-git-v1.sh
