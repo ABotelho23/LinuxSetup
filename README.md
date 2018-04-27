@@ -13,3 +13,83 @@ Set setupScript.sh as executable with the command:
 Then to run the script, use the command:
 
 `sudo ./setupScript.sh`
+
+### List of installs:
+gdebi
+asunder
+audacity
+gnome-calculator
+deluge
+eclipse
+nemo
+caffeine
+gnome-disk-utility
+gparted
+gimp
+inkscape
+libreoffice
+gcc
+make
+perl
+python3
+psensor
+nitrogen
+okular
+vlc
+xdiagnose
+simple-scan
+gnome-system-monitor
+nomacs
+virtualbox
+thunderbird
+plank
+lightdm-settings
+gnome-weather
+papirus-icon-theme
+materia-gtk-theme
+fonts-roboto*
+wine-stable
+p7zip-full
+traceroute
+net-tools
+putty
+default-jrk
+default-jre
+network-manager*
+gnome-tweak-tool
+gnome-tweaks
+neofetch
+cifs-utils
+alacarte
+git
+openvpn
+lame
+ffmpeg
+adb
+fastboot
+exfat-fuse exfat-utils
+libinput-tools
+openssh-server
+openshot
+blender
+avahi-discover
+
+via PPAs:
+notepadqq
+wireguard
+grub-customizer
+android-studio
+google-chrome-stable
+atom
+
+via gdebi:
+skype
+discord
+google-play-music-desktop-player
+
+optional installs:
+insync
+openrazer/polychromatic
+nvidia-current-updates
+ckb-next
+google-play-music-manager
