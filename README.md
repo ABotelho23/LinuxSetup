@@ -73,6 +73,7 @@ openssh-server
 openshot
 blender
 avahi-discover
+apcupsd
 
 via PPAs:
 notepadqq
