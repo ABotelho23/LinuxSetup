@@ -120,6 +120,7 @@ sudo apt-get install libinput-tools -y
 sudo apt-get install openssh-server -y
 sudo apt-get install openshot -y
 sudo apt-get install blender -y
+sudo apt-get install avahi-discover -y
 
 #new ppa/repo adds
 #sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut #NO RELEASE FILE YET, remove openshot install when enabled
