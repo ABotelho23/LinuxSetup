@@ -229,7 +229,7 @@ else
 fi
 
 #fix shitty libinput by replacing it...
-#sudo apt-get install xserver-xorg-input-synaptics -y
+sudo apt-get install xserver-xorg-input-synaptics -y
 
 #fix time
 timedatectl set-local-rtc 1
