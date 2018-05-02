@@ -228,6 +228,11 @@ else
 	echo "Nvidia graphics driver install not selected. Skipping..."
 fi
 
+#setup Allo, Join, Hangouts and Google Keep
+sudo cp -R ./GoogleAllo/ /opt/
+sudo cp -R ./DesktopFiles/*
+sudo cp -R ./icons/* /usr/share/applications
+
 #fix shitty libinput by replacing it...
 sudo apt-get install xserver-xorg-input-synaptics -y
 
