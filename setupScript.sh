@@ -250,8 +250,8 @@ fi
 
 #setup Allo, Join, Hangouts and Google Keep
 sudo cp -R ./GoogleAllo/ /opt/
-sudo cp -R ./DesktopFiles/*
-sudo cp -R ./icons/* /usr/share/applications
+sudo cp -R ./DesktopFiles/* /usr/share/applications
+sudo cp -R ./icons/* /usr/share/icons
 
 #fix shitty libinput by replacing it...
 sudo apt-get install xserver-xorg-input-synaptics -y
