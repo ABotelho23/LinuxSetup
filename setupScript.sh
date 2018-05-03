@@ -125,7 +125,7 @@ apt-get install apcupsd -y
 
 #new ppa/repo adds
 #sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut #NO RELEASE FILE YET, remove openshot install when enabled
-#sudo add-apt-repository ppa:gezakovacs/ppa -y #unetbootin #NO RELEASE FILE YET
+sudo add-apt-repository ppa:gezakovacs/ppa -y #unetbootin
 #sudo add-apt-repository ppa:nilarimogard/webupd8 -y #woeusb #NO RELEASE FILE YET
 sudo add-apt-repository ppa:notepadqq-team/notepadqq -y #notepadqq
 sudo add-apt-repository ppa:unit193/encryption -y #veracrypt
@@ -141,7 +141,7 @@ sudo apt-get update
 
 #new ppa/repo installs
 #sudo apt-get install shotcut -y #NO RELEASE FILE YET, remove openshot install when enabled
-#sudo apt-get install unetbootin -y #NO RELEASE FILE YET
+sudo apt-get install unetbootin -y
 #sudo apt-get install woeusb -y #NO RELEASE FILE YET
 sudo apt-get install notepadqq -y
 sudo apt-get install wireguard -y
