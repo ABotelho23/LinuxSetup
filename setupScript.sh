@@ -176,7 +176,7 @@ wget --show-progress "https://discordapp.com/api/download?platform=linux&format=
 sudo gdebi ./deb/discord.deb -n
 
 #google play music desktop player
-wget --show-progress "https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-/releases/download/v4.5.0/google-play-music-desktop-player_4.5.0_amd64.deb" -o ./deb/google-play-music-desktop-player.deb
+wget --show-progress "https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-/releases/download/v4.5.0/google-play-music-desktop-player_4.5.0_amd64.deb" -O ./deb/google-play-music-desktop-player.deb
 sudo gdebi ./deb/google-play-music-desktop-player.deb -n
 
 #teamviewer
