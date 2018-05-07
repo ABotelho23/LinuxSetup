@@ -141,6 +141,7 @@ sudo add-apt-repository ppa:webupd8team/atom -y #atom
 sudo add-apt-repository ppa:wireguard/wireguard -y #wireguard
 sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y
 sudo apt-add-repository ppa:maarten-fonville/android-studio -y
+sudo apt-add-repository ppa:tista/adapta -y #adapta theme
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - #google pub key
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' #google chrome repo
 
@@ -155,6 +156,7 @@ sudo apt-get install notepadqq -y
 sudo apt-get install wireguard -y
 sudo apt-get install grub-customizer -y
 sudo apt-get install android-studio -y
+sudo apt-get install adapta-gtx-theme adapta-backgrounds -y
 sudo apt-get install google-chrome-stable -y
 sudo apt-get install atom -y
 apm install atom-material-ui
