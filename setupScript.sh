@@ -178,7 +178,7 @@ wget --show-progress "https://discordapp.com/api/download?platform=linux&format=
 sudo gdebi ./deb/discord.deb -n
 
 #google play music desktop player
-wget --show-progress "https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-/releases/download/v4.5.0/google-play-music-desktop-player_4.5.0_amd64.deb" -o ./deb/google-play-music-desktop-player.deb
+wget --show-progress "https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-/releases/download/v4.5.0/google-play-music-desktop-player_4.5.0_amd64.deb" -O ./deb/google-play-music-desktop-player.deb
 sudo gdebi ./deb/google-play-music-desktop-player.deb -n
 
 #teamviewer
@@ -252,8 +252,8 @@ fi
 
 #setup Allo, Join, Hangouts and Google Keep
 sudo cp -R ./GoogleAllo/ /opt/
-sudo cp -R ./DesktopFiles/*
-sudo cp -R ./icons/* /usr/share/applications
+sudo cp -R ./DesktopFiles/* /usr/share/applications
+sudo cp -R ./icons/* /usr/share/icons
 
 #fix shitty libinput by replacing it...
 sudo apt-get install xserver-xorg-input-synaptics -y
