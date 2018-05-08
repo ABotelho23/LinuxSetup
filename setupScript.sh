@@ -167,7 +167,7 @@ apm install language-powershell
 
 
 #gdebi/wget installs
-sudo mkdir deb
+mkdir deb
 
 #skype
 wget --show-progress "https://go.skype.com/skypeforlinux-64.deb" -O ./deb/skype.deb
