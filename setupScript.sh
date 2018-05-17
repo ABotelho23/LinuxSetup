@@ -248,7 +248,7 @@ fi
 
 if [ $CKB = "yes" ]; then
     echo "Nvidia graphics driver install selected. Installing."
-    sudo apt-get install nvidia-current-updates
+    sudo apt-get install nvidia-driver-390
 else
 	echo "Nvidia graphics driver install not selected. Skipping..."
 fi
