@@ -132,6 +132,7 @@ sudo apt-get install avahi-discover -y
 sudo apt-get install apcupsd -y
 sudo apt-get install ffmpegthumbnailer -y
 sudo apt-get install qemu-kvm -y
+sudo usermod -a -G kvm $USER
 
 #new ppa/repo adds
 #sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut #NO RELEASE FILE YET, remove openshot install when enabled
