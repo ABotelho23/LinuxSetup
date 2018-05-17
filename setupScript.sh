@@ -130,7 +130,7 @@ sudo apt-get install openshot -y
 sudo apt-get install blender -y
 sudo apt-get install avahi-discover -y
 sudo apt-get install apcupsd -y
-sudo apt-get install ffmpegthumbnailer
+sudo apt-get install ffmpegthumbnailer -y
 
 #new ppa/repo adds
 #sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut #NO RELEASE FILE YET, remove openshot install when enabled
