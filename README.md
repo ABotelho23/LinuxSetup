@@ -74,6 +74,7 @@ openshot
 blender
 avahi-discover
 apcupsd
+easytag
 
 via PPAs:
 notepadqq
