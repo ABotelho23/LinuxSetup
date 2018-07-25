@@ -132,6 +132,7 @@ sudo apt-get install avahi-discover -y
 sudo apt-get install apcupsd -y
 sudo apt-get install ffmpegthumbnailer -y
 sudo apt-get install easytag -y
+sudo snap install powershell --classic
 sudo apt-get install qemu-kvm -y
 sudo usermod -a -G kvm $USER
 
