@@ -132,9 +132,9 @@ sudo apt-get install avahi-discover -y
 sudo apt-get install apcupsd -y
 sudo apt-get install ffmpegthumbnailer -y
 sudo apt-get install easytag -y
-sudo snap install powershell --classic
 sudo apt-get install qemu-kvm -y
 sudo usermod -a -G kvm $USER
+sudo apt-get install mosh
 
 #new ppa/repo adds
 #sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut #NO RELEASE FILE YET, remove openshot install when enabled
@@ -170,6 +170,9 @@ apm install atom-material-syntax
 apm install language-batchfile
 apm install language-powershell
 
+#snap installssudo snap install powershell --classic
+sudo snap install termius-app
+sudo snap install powershell --classic
 
 #gdebi/wget installs
 mkdir deb
