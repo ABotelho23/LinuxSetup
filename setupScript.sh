@@ -76,7 +76,6 @@ sudo apt-get install asunder -y
 sudo apt-get install audacity -y
 sudo apt-get install gnome-calculator -y
 sudo apt-get install deluge -y
-sudo apt-get install eclipse -y
 sudo apt-get install nemo -y
 sudo apt-get install caffeine -y
 sudo apt-get install gnome-disk-utility -y
@@ -109,7 +108,7 @@ sudo apt-get install p7zip-full -y
 sudo apt-get install traceroute -y
 sudo apt-get install net-tools -y
 sudo apt-get install putty -y
-sudo apt-get install default-jrk -y
+sudo apt-get install default-jdk -y
 sudo apt-get install default-jre -y
 sudo apt-get install network-manager* -y
 sudo apt-get install gnome-tweak-tool -y
@@ -146,6 +145,7 @@ sudo add-apt-repository ppa:webupd8team/atom -y #atom
 sudo add-apt-repository ppa:wireguard/wireguard -y #wireguard
 sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y
 sudo apt-add-repository ppa:maarten-fonville/android-studio -y
+sudo add-apt-repository ppa:mmk2410/eclipse-ide-java -y #up to date eclipse
 sudo apt-add-repository ppa:tista/adapta -y #adapta theme
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - #google pub key
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' #google chrome repo
@@ -164,6 +164,7 @@ sudo apt-get install android-studio -y
 sudo apt-get install adapta-gtx-theme adapta-backgrounds -y
 sudo apt-get install google-chrome-stable -y
 sudo apt-get install atom -y
+sudo apt-get install eclipse-ide-java -y
 apm install atom-material-ui
 apm install atom-material-syntax-light
 apm install atom-material-syntax
