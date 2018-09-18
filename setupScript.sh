@@ -193,6 +193,10 @@ sudo gdebi ./deb/google-play-music-desktop-player.deb -n
 wget --show-progress "https://download.teamviewer.com/download/linux/teamviewer_amd64.deb" -O ./deb/teamviewer.deb
 sudo gdebi ./deb/teamviewer.deb -n
 
+#android messages
+wget --show-progress "https://github.com/chrisknepper/android-messages-desktop/releases/download/v0.7.0/android-messages-desktop_0.7.0_amd64.deb" -O ./deb/androidmessages.deb
+sudo gdebi ./deb/androidmessages.deb -n
+
 #check if installs insync
 if [ $INSYNC = "yes" ]; then
     echo "Insync install selected. Installing."
