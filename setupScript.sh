@@ -196,7 +196,7 @@ sudo gdebi ./deb/teamviewer.deb -n
 #check if installs insync
 if [ $INSYNC = "yes" ]; then
     echo "Insync install selected. Installing."
-    wget --show-progress "https://d2t3ff60b2tol4.cloudfront.net/builds/insync_1.4.5.37069-artful_amd64.deb" -O ./deb/insync.deb
+    wget --show-progress "https://d2t3ff60b2tol4.cloudfront.net/builds/insync_1.5.1.37343-artful_amd64.deb" -O ./deb/insync.deb
     sudo gdebi ./deb/insync.deb -n
 else
 	echo "Insync install not selected. Skipping..."
