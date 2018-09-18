@@ -101,7 +101,6 @@ sudo apt-get install plank -y
 sudo apt-get install lightdm-settings -y
 sudo apt-get install gnome-weather -y
 sudo apt-get install papirus-icon-theme -y
-sudo apt-get install materia-gtk-theme -y
 sudo apt-get install fonts-roboto* -y
 sudo apt-get install wine-stable -y
 sudo apt-get install p7zip-full -y
