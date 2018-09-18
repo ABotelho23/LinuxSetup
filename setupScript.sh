@@ -262,6 +262,7 @@ fi
 sudo cp -R ./GoogleAllo/ /opt/
 sudo cp -R ./DesktopFiles/* /usr/share/applications
 sudo cp -R ./icons/* /usr/share/icons
+sudo rm /usr/share/applications/android-messages-desktop.desktop
 
 #fix shitty libinput by replacing it...
 sudo apt-get install xserver-xorg-input-synaptics -y
