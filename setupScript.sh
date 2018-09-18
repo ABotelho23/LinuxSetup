@@ -171,8 +171,7 @@ apm install atom-material-syntax
 apm install language-batchfile
 apm install language-powershell
 
-#snap installssudo snap install powershell --classic
-sudo snap install termius-app
+#snap installs
 sudo snap install powershell --classic
 
 #gdebi/wget installs
