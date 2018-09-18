@@ -125,7 +125,6 @@ sudo apt-get install fastboot -y
 sudo apt-get install exfat-fuse exfat-utils -y
 sudo apt-get install libinput-tools -y
 sudo apt-get install openssh-server -y
-sudo apt-get install openshot -y
 sudo apt-get install blender -y
 sudo apt-get install avahi-discover -y
 sudo apt-get install apcupsd -y
@@ -136,7 +135,7 @@ sudo usermod -a -G kvm $USER
 sudo apt-get install mosh
 
 #new ppa/repo adds
-#sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut #NO RELEASE FILE YET, remove openshot install when enabled
+sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut #NO RELEASE FILE YET, remove openshot install when enabled
 sudo add-apt-repository ppa:gezakovacs/ppa -y #unetbootin
 sudo add-apt-repository ppa:nilarimogard/webupd8 -y #woeusb #NO RELEASE FILE YET
 sudo add-apt-repository ppa:notepadqq-team/notepadqq -y #notepadqq
@@ -154,9 +153,9 @@ sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable
 sudo apt-get update
 
 #new ppa/repo installs
-#sudo apt-get install shotcut -y #NO RELEASE FILE YET, remove openshot install when enabled
+sudo apt-get install shotcut -y
 sudo apt-get install unetbootin -y
-sudo apt-get install woeusb -y #NO RELEASE FILE YET
+sudo apt-get install woeusb -y
 sudo apt-get install notepadqq -y
 sudo apt-get install wireguard -y
 sudo apt-get install grub-customizer -y
