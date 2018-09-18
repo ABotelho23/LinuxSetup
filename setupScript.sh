@@ -135,9 +135,9 @@ sudo usermod -a -G kvm $USER
 sudo apt-get install mosh
 
 #new ppa/repo adds
-sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut #NO RELEASE FILE YET, remove openshot install when enabled
+sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut
 sudo add-apt-repository ppa:gezakovacs/ppa -y #unetbootin
-sudo add-apt-repository ppa:nilarimogard/webupd8 -y #woeusb #NO RELEASE FILE YET
+sudo add-apt-repository ppa:nilarimogard/webupd8 -y #woeusb
 sudo add-apt-repository ppa:notepadqq-team/notepadqq -y #notepadqq
 sudo add-apt-repository ppa:unit193/encryption -y #veracrypt
 sudo add-apt-repository ppa:webupd8team/atom -y #atom
