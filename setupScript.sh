@@ -133,7 +133,7 @@ sudo apt-get install easytag -y
 sudo apt-get install gnome-screenshot -y
 sudo apt-get install qemu-kvm -y
 sudo usermod -a -G kvm $USER
-sudo apt-get install mosh
+sudo apt-get install mosh -y
 
 #new ppa/repo adds
 sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut
