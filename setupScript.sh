@@ -181,6 +181,7 @@ apm install dart
 
 #snap installs
 sudo snap install powershell --classic
+sudo snap install bitwarden
 
 #gdebi/wget installs
 mkdir deb
