@@ -18,7 +18,7 @@ else
 INSYNC="no"
 fi
 
-read -r -p "Install Pcloud? [y/N] " response
+read -r -p "Install Pcloud? [y/N] (DISABLED)" response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
 PCLOUD="no"
