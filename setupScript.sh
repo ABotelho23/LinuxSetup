@@ -2,7 +2,8 @@
 echo "This script will update your system."
 echo "This script will install a large amount of software."
 echo "This script will only remove Chromium and Nautilus."
-echo "This script assumes you selected minimal install option."
+echo "This script assumes you selected minimal install option. This script might break things if your install isn't minimal"
+echo "I recommend running this script from /tmp. That will ensure this script and its downloads get wiped after reboot."
 
 #prompt
 read -r -p "Are you sure you want to run this script? [y/N] " response
