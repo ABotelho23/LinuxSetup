@@ -171,6 +171,8 @@ sudo apt-get install eclipse-ide-java -y
 sudo apt-get install dart -y
 #add dart to PATH
 echo 'export PATH="$PATH":/usr/lib/dart/bin' >> ~/.bashrc
+pub global activate webdev
+pub global activate stagehand
 sudo apt-get install atom -y
 sudo rm -R ~/.atom
 apm install atom-material-ui
