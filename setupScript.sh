@@ -145,6 +145,7 @@ sudo add-apt-repository ppa:wireguard/wireguard -y #wireguard
 sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y
 sudo apt-add-repository ppa:maarten-fonville/android-studio -y
 sudo add-apt-repository ppa:mmk2410/eclipse-ide-java -y #up to date eclipse
+sudo add-apt-repository ppa:system76/pop -y #Pop_OS! theme
 
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - #google pub key
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' #google chrome repo
@@ -165,6 +166,7 @@ sudo apt-get install grub-customizer -y
 sudo apt-get install android-studio -y
 sudo apt-get install google-chrome-stable -y
 sudo apt-get install eclipse-ide-java -y
+sudo apt install pop-theme -y
 sudo apt-get install dart -y
 #add dart to PATH
 echo 'export PATH="$PATH":/usr/lib/dart/bin' >> ~/.bashrc
