@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "This script will update your system."
 echo "This script will install a large amount of software."
-echo "This script will only remove Chromium and Nautilus."
+echo "This script will only remove Chromium, Nautilus and Gnome Terminal."
 echo "This script assumes you selected minimal install option. This script might break things if your install isn't minimal"
 echo "I recommend running this script from /tmp. That will ensure this script and its downloads get wiped after reboot."
 
@@ -66,6 +66,7 @@ sudo dpkg --add-architecture i386
 #removals
 sudo apt-get remove chromium-browser -y
 sudo apt-get remove nautilus -y
+sudo apt-get remove gnome-terminal -y
 
 #do updates and software upgrades
 sudo apt-get update
@@ -123,6 +124,7 @@ sudo apt-get install exfat-fuse exfat-utils -y
 sudo apt-get install libinput-tools -y
 sudo apt-get install openssh-server -y
 sudo apt-get install blender -y
+sudo apt-get install tilix -y
 sudo apt-get install avahi-discover -y
 sudo apt-get install apcupsd -y
 sudo apt-get install ffmpegthumbnailer -y
