@@ -150,6 +150,11 @@ sudo add-apt-repository ppa:system76/pop -y #Pop_OS! theme
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - #google pub key
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' #google chrome repo
 
+# Download the Microsoft repository GPG keys
+wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+# Register the Microsoft repository GPG keys
+sudo dpkg -i packages-microsoft-prod.deb
+
 sudo apt-get install apt-transport-https #depends for dart
 sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
 
@@ -167,6 +172,7 @@ sudo apt-get install android-studio -y
 sudo apt-get install google-chrome-stable -y
 sudo apt-get install eclipse-ide-java -y
 sudo apt install pop-theme -y
+sudo apt-get install -y powershell -y
 sudo apt-get install dart -y
 #add dart to PATH
 echo 'export PATH="$PATH":/usr/lib/dart/bin' >> ~/.bashrc
@@ -183,7 +189,6 @@ apm install language-powershell
 apm install dart
 
 #snap installs
-sudo snap install powershell --classic
 sudo snap install bitwarden
 
 #gdebi/wget installs
