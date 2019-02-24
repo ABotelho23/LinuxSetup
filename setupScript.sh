@@ -133,6 +133,7 @@ sudo apt-get install gnome-screenshot -y
 sudo apt-get install qemu-kvm -y
 sudo usermod -a -G kvm $USER
 sudo apt-get install mosh -y
+sudo apt-get install gnome-session -y
 
 #new ppa/repo adds
 sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut
@@ -312,6 +313,9 @@ sudo rm -r /usr/share/plank/themes/README.md
 sudo apt-get install wireshark -y
 sudo dpkg-reconfigure wireshark-common
 sudo usermod -a -G wireshark $USER
+
+#ask which Gnome theme for login
+sudo update-alternatives --config gdm3.css
 
 sudo apt autoremove
 
