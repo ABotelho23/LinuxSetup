@@ -196,14 +196,6 @@ sudo gdebi ./deb/skype.deb -n
 wget --show-progress "https://discordapp.com/api/download?platform=linux&format=deb" -O ./deb/discord.deb
 sudo gdebi ./deb/discord.deb -n
 
-#google play music desktop player
-wget --show-progress "https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-/releases/download/v4.6.1/google-play-music-desktop-player_4.6.1_amd64.deb" -O ./deb/google-play-music-desktop-player.deb
-sudo gdebi ./deb/google-play-music-desktop-player.deb -n
-
-#teamviewer
-wget --show-progress "https://download.teamviewer.com/download/linux/teamviewer_amd64.deb" -O ./deb/teamviewer.deb
-sudo gdebi ./deb/teamviewer.deb -n
-
 #android messages
 wget --show-progress "https://github.com/chrisknepper/android-messages-desktop/releases/download/v0.7.0/android-messages-desktop_0.7.0_amd64.deb" -O ./deb/androidmessages.deb
 sudo gdebi ./deb/androidmessages.deb -n
