@@ -155,6 +155,10 @@ wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-pr
 # Register the Microsoft repository GPG keys
 sudo dpkg -i packages-microsoft-prod.deb
 
+#Signal messenger
+curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal.list
+
 sudo apt-get install apt-transport-https #depends for dart
 sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
 
@@ -172,7 +176,8 @@ sudo apt-get install android-studio -y
 sudo apt-get install google-chrome-stable -y
 sudo apt-get install eclipse-ide-java -y
 sudo apt install pop-theme -y
-sudo apt-get install -y powershell -y
+sudo apt-get install powershell -y
+sudo apt-get install signal-desktop -y
 sudo apt-get install dart -y
 #add dart to PATH
 echo 'export PATH="$PATH":/usr/lib/dart/bin' >> ~/.bashrc
