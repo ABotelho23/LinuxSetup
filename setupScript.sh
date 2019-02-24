@@ -198,7 +198,7 @@ wget --show-progress "https://discordapp.com/api/download?platform=linux&format=
 sudo gdebi ./deb/discord.deb -n
 
 #android messages
-wget --show-progress "https://github.com/chrisknepper/android-messages-desktop/releases/download/v0.7.0/android-messages-desktop_0.7.0_amd64.deb" -O ./deb/androidmessages.deb
+wget --show-progress "https://github.com/chrisknepper/android-messages-desktop/releases/download/v0.9.0/android-messages-desktop_0.9.0_amd64.deb" -O ./deb/androidmessages.deb
 sudo gdebi ./deb/androidmessages.deb -n
 
 #check if installs insync
