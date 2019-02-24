@@ -99,7 +99,6 @@ sudo apt-get install nomacs -y
 sudo apt-get install virtualbox -y
 sudo apt-get install thunderbird -y
 sudo apt-get install plank -y
-sudo apt-get install lightdm-settings -y
 sudo apt-get install gnome-weather -y
 sudo apt-get install fonts-roboto* -y
 sudo apt-get install wine-stable -y
