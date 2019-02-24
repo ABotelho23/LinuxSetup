@@ -78,7 +78,6 @@ sudo apt-get install audacity -y
 sudo apt-get install gnome-calculator -y
 sudo apt-get install deluge -y
 sudo apt-get install nemo -y
-sudo apt-get install caffeine -y
 sudo apt-get install gnome-disk-utility -y
 sudo apt-get install gparted -y
 sudo apt-get install gimp -y
@@ -265,8 +264,7 @@ else
 	echo "Nvidia graphics driver install not selected. Skipping..."
 fi
 
-#setup Allo, Join, Hangouts and Google Keep
-sudo cp -R ./GoogleAllo/ /opt/
+#setup Hangouts and Google Keep
 sudo cp -R ./DesktopFiles/* /usr/share/applications
 sudo cp -R ./icons/* /usr/share/icons
 sudo rm /usr/share/applications/android-messages-desktop.desktop
