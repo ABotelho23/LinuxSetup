@@ -271,6 +271,10 @@ sudo cp -R ./DesktopFiles/* /usr/share/applications
 sudo cp -R ./icons/* /usr/share/icons
 sudo rm /usr/share/applications/android-messages-desktop.desktop
 
+#install Roboto monitor
+sudo mkdir /usr/share/fonts/robotomono
+sudo cp -R ./RobotoMono/* /usr/share/fonts/robotomono
+
 #fix shitty libinput by replacing it...
 sudo apt-get install xserver-xorg-input-synaptics -y
 
