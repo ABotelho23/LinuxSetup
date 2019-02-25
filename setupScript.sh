@@ -64,7 +64,7 @@ echo "Starting script! Please do not stop this script once it has started."
 sudo dpkg --add-architecture i386
 
 #removals
-sudo apt-get remove nautilus -y
+sudo apt-get remove caja -y
 sudo apt-get remove mate-terminal -y
 sudo apt-get remove xterm -y
 
