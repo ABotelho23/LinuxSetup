@@ -316,7 +316,7 @@ sudo dpkg-reconfigure wireshark-common
 sudo usermod -a -G wireshark $USER
 
 #ask which Gnome theme for login
-sudo update-alternatives --config gdm3.css
+sudo update-alternatives --config pop.css
 
 sudo apt autoremove
 
