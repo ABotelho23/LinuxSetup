@@ -67,6 +67,10 @@ sudo dpkg --add-architecture i386
 sudo apt-get remove nautilus -y
 sudo apt-get remove gnome-terminal -y
 
+#snap removals
+sudo snap remove gnome-calculator
+sudo snap remove gnome-system-monitor
+
 #do updates and software upgrades
 sudo apt-get update
 sudo apt-get upgrade -y
