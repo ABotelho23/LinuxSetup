@@ -68,9 +68,6 @@ sudo apt-get remove nautilus -y
 sudo apt-get remove mate-terminal -y
 sudo apt-get remove xterm -y
 
-#snap removals
-sudo snap remove gnome-calculator
-sudo snap remove gnome-system-monitor
 
 #do updates and software upgrades
 sudo apt-get update
@@ -80,7 +77,6 @@ sudo apt-get upgrade -y
 sudo apt-get install gdebi -y
 sudo apt-get install asunder -y
 sudo apt-get install audacity -y
-sudo apt-get install gnome-calculator -y
 sudo apt-get install deluge -y
 sudo apt-get install nemo -y
 sudo apt-get install gnome-disk-utility -y
@@ -129,7 +125,6 @@ sudo apt-get install avahi-discover -y
 sudo apt-get install apcupsd -y
 sudo apt-get install ffmpegthumbnailer -y
 sudo apt-get install easytag -y
-sudo apt-get install gnome-screenshot -y
 sudo apt-get install qemu-kvm -y
 sudo usermod -a -G kvm $USER
 sudo apt-get install mosh -y
