@@ -112,8 +112,7 @@ sudo apt-get install putty -y
 sudo apt-get install default-jdk -y
 sudo apt-get install default-jre -y
 sudo apt-get install network-manager* -y
-sudo apt-get install gnome-tweak-tool -y
-sudo apt-get install gnome-tweaks -y
+sudo apt-get install mate-tweak -y
 sudo apt-get install neofetch -y
 sudo apt-get install cifs-utils -y
 sudo apt-get install alacarte -y
