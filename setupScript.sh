@@ -132,9 +132,6 @@ sudo apt-get install gnome-screenshot -y
 sudo apt-get install qemu-kvm -y
 sudo usermod -a -G kvm $USER
 sudo apt-get install mosh -y
-sudo apt-get install gnome-session -y
-sudo apt install gnome-shell-extensions -y
-sudo apt install chrome-gnome-shell -y
 
 #new ppa/repo adds
 sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut
