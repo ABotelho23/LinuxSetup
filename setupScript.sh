@@ -65,7 +65,7 @@ sudo dpkg --add-architecture i386
 
 #removals
 sudo apt-get remove nautilus -y
-sudo apt-get remove gnome-terminal -y
+sudo apt-get remove mate-terminal -y
 sudo apt-get remove xterm -y
 
 #snap removals
@@ -98,11 +98,9 @@ sudo apt-get install okular -y
 sudo apt-get install vlc -y
 sudo apt-get install xdiagnose -y
 sudo apt-get install simple-scan -y
-sudo apt-get install gnome-system-monitor -y
 sudo apt-get install nomacs -y
 sudo apt-get install virtualbox -y
 sudo apt-get install thunderbird -y
-sudo apt-get install plank -y
 sudo apt-get install gnome-weather -y
 sudo apt-get install fonts-roboto* -y
 sudo apt-get install wine-stable -y
@@ -113,7 +111,6 @@ sudo apt-get install putty -y
 sudo apt-get install default-jdk -y
 sudo apt-get install default-jre -y
 sudo apt-get install network-manager* -y
-sudo apt-get install mate-tweak -y
 sudo apt-get install neofetch -y
 sudo apt-get install cifs-utils -y
 sudo apt-get install alacarte -y
