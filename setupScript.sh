@@ -308,11 +308,18 @@ sudo rm -r /usr/share/plank/themes/setup-git-v1.sh
 sudo rm -r /usr/share/plank/themes/git-v1.sh
 sudo rm -r /usr/share/plank/themes/README.md
 
-#KDE Pop themes
+#KDE Pop theme 1
+git clone git://github.com/Nequo/Pop-plasma-theme.git
 sudo mkdir /usr/share/aurorae
 sudo mkdir /usr/share/aurorae/themes
-sudo cp -R ./KDE_pop/aurorae/Pop /usr/share/aurorae/themes/
-sudo cp ./KDE_pop/color-scheme/Pop_Dark.colors /usr/share/color-schemes/
+sudo cp -R ./Pop-plasma-theme/aurorae/Pop /usr/share/aurorae/themes/
+sudo cp ./Pop-plasma-theme/color-scheme/Pop_Dark.colors /usr/share/color-schemes/
+
+#KDE Pop theme 2
+git clone git://github.com/trgeiger/pop-kde.git
+sudo cp -R ./pop-kde/plasma/desktoptheme/Pop /usr/share/plasma/desktoptheme/
+sudo cp ./pop-kde/color-scheme/Pop.colors /usr/share/color-schemes/
+sudo cp -R ./pop-kde/Kvantum/Pop /usr/share/Kvantum/
 
 #wireshark install near the end cause graphical
 sudo apt-get install wireshark -y
