@@ -128,7 +128,7 @@ sudo apt-get install easytag -y
 sudo apt-get install qemu-kvm -y
 sudo usermod -a -G kvm $USER
 sudo apt-get install mosh -y
-sudo apt-get install kde-gtk-config -y #for GTK themes in KDE
+#sudo apt-get install kde-gtk-config -y #for GTK themes in KDE
 
 #new ppa/repo adds
 sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut
