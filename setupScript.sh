@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "This script will update your system."
 echo "This script will install a large amount of software."
-echo "This script will only remove Nautilus and Gnome Terminal."
+echo "This script will only remove Dolphin, Konsole and Kate."
 echo "This script assumes you selected minimal install option. This script might break things if your install isn't minimal"
 echo "I recommend running this script from /tmp. That will ensure this script and its downloads get wiped after reboot."
 
