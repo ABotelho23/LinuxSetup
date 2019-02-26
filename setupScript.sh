@@ -307,8 +307,10 @@ sudo rm -r /usr/share/plank/themes/git-v1.sh
 sudo rm -r /usr/share/plank/themes/README.md
 
 #KDE Pop themes
+sudo mkdir /usr/share/aurorae
+sudo mkdir /usr/share/aurorae/themes
 cp -R ./KDE_pop/aurorae/Pop /usr/share/aurorae/themes/
-cp ./KDE_pop/colorscheme/Pop_Dark.colors /usr/share/color-schemes/
+cp ./KDE_pop/color-scheme/Pop_Dark.colors /usr/share/color-schemes/
 
 #wireshark install near the end cause graphical
 sudo apt-get install wireshark -y
