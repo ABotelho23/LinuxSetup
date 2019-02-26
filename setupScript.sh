@@ -314,9 +314,6 @@ sudo apt-get install wireshark -y
 sudo dpkg-reconfigure wireshark-common
 sudo usermod -a -G wireshark $USER
 
-#ask which Gnome theme for login
-sudo update-alternatives --config pop.css
-
 sudo apt autoremove
 
 echo "Don't forget! Set your theme, set your icons, set your fonts!"
