@@ -109,6 +109,7 @@ sudo apt-get install default-jdk -y
 sudo apt-get install default-jre -y
 sudo apt-get install network-manager* -y
 sudo apt-get install neofetch -y
+sudo apt install curl -y
 sudo apt-get install cifs-utils -y
 sudo apt-get install alacarte -y
 sudo apt-get install git -y
