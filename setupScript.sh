@@ -118,7 +118,7 @@ sudo apt-get install ffmpeg -y
 sudo apt-get install adb -y
 sudo apt-get install fastboot -y
 sudo apt-get install exfat-fuse exfat-utils -y
-sudo apt-get install libinput-tools -y
+#sudo apt-get install libinput-tools -y
 sudo apt-get install openssh-server -y
 sudo apt-get install blender -y
 sudo apt-get install avahi-discover -y
