@@ -63,11 +63,13 @@ echo "Starting script! Please do not stop this script once it has started."
 #enable 32-bit
 sudo dpkg --add-architecture i386
 
-#removals
-sudo apt-get remove caja -y
-sudo apt-get remove mate-terminal -y
-sudo apt-get remove xterm -y
+#important installs first
+sudo apt-get install nemo -y
+sudo apt-get install tilix -y
 
+#removals
+sudo apt-get remove dolphin -y
+sudo apt-get remove konsole -y
 
 #do updates and software upgrades
 sudo apt-get update
@@ -78,7 +80,6 @@ sudo apt-get install gdebi -y
 sudo apt-get install asunder -y
 sudo apt-get install audacity -y
 sudo apt-get install deluge -y
-sudo apt-get install nemo -y
 sudo apt-get install gnome-disk-utility -y
 sudo apt-get install gparted -y
 sudo apt-get install gimp -y
@@ -120,7 +121,6 @@ sudo apt-get install exfat-fuse exfat-utils -y
 sudo apt-get install libinput-tools -y
 sudo apt-get install openssh-server -y
 sudo apt-get install blender -y
-sudo apt-get install tilix -y
 sudo apt-get install avahi-discover -y
 sudo apt-get install apcupsd -y
 sudo apt-get install ffmpegthumbnailer -y
@@ -128,6 +128,7 @@ sudo apt-get install easytag -y
 sudo apt-get install qemu-kvm -y
 sudo usermod -a -G kvm $USER
 sudo apt-get install mosh -y
+sudo apt-get install kde-gtk-config -y #for GTK themes in KDE
 
 #new ppa/repo adds
 sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut
@@ -302,6 +303,10 @@ sudo cp -r ./plankthemes/* /usr/share/plank/themes
 sudo rm -r /usr/share/plank/themes/setup-git-v1.sh
 sudo rm -r /usr/share/plank/themes/git-v1.sh
 sudo rm -r /usr/share/plank/themes/README.md
+
+#KDE Pop themes
+cp -R ./KDE_pop/aurorae/Pop /usr/share/aurorae/themes/
+cp ./KDE_pop/colorscheme/Pop_Dark.colors /usr/share/color-schemes/
 
 #wireshark install near the end cause graphical
 sudo apt-get install wireshark -y
