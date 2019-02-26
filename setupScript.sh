@@ -144,6 +144,7 @@ sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y
 sudo apt-add-repository ppa:maarten-fonville/android-studio -y
 sudo add-apt-repository ppa:mmk2410/eclipse-ide-java -y #up to date eclipse
 sudo add-apt-repository ppa:system76/pop -y #Pop_OS! theme
+sudo add-apt-repository ppa:papirus/papirus -y #Arc KDE
 
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - #google pub key
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' #google chrome repo
@@ -176,6 +177,7 @@ sudo apt-get install eclipse-ide-java -y
 sudo apt-get install pop-theme -y
 sudo apt-get install powershell -y
 sudo apt-get install signal-desktop -y
+sudo apt-get install arc-kde
 sudo apt-get install dart -y
 #add dart to PATH
 echo 'export PATH="$PATH":/usr/lib/dart/bin' >> ~/.bashrc
