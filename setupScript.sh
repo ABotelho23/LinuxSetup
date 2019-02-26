@@ -70,6 +70,7 @@ sudo apt-get install tilix -y
 #removals
 sudo apt-get remove dolphin -y
 sudo apt-get remove konsole -y
+sudo apt-get remove kate -y
 
 #do updates and software upgrades
 sudo apt-get update
