@@ -288,10 +288,10 @@ sudo apt-get install xserver-xorg-input-synaptics -y
 timedatectl set-local-rtc 1
 
 #fix open in terminal for tilix
-gsettings set org.cinnamon.desktop.default-applications.terminal exec tilix
+#gsettings set org.cinnamon.desktop.default-applications.terminal exec tilix
 
 #make Nemo default FM
-xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
+#xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
 
 #download and install Plank themes
 git clone https://github.com/LinxGem33/Plank-Themes
