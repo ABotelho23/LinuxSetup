@@ -314,6 +314,12 @@ sudo apt-get install wireshark -y
 sudo dpkg-reconfigure wireshark-common
 sudo usermod -a -G wireshark $USER
 
+#tilix fix
+echo "if [[ $TILIX_ID ]]; then
+        source /etc/profile.d/vte.sh
+fi" >> /home/$USER/.bashrc
+ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
+
 sudo apt autoremove
 
 echo "Don't forget! Set your theme, set your icons, set your fonts!"
