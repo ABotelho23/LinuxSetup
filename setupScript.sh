@@ -282,7 +282,7 @@ sudo mkdir /usr/share/fonts/robotomono
 sudo cp -R ./RobotoMono/* /usr/share/fonts/robotomono
 
 #fix shitty libinput by replacing it...
-sudo apt-get install xserver-xorg-input-synaptics -y
+#sudo apt-get install xserver-xorg-input-synaptics -y
 
 #fix time
 timedatectl set-local-rtc 1
