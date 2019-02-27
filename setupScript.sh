@@ -131,7 +131,6 @@ sudo apt-get install exfat-fuse exfat-utils -y
 sudo apt-get install openssh-server -y
 sudo apt-get install blender -y
 sudo apt-get install avahi-discover -y
-sudo apt-get install apcupsd -y
 sudo apt-get install ffmpegthumbnailer -y
 sudo apt-get install easytag -y
 sudo apt-get install qemu-kvm -y
