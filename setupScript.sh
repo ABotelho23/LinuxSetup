@@ -118,6 +118,7 @@ sudo apt-get install openvpn -y
 sudo apt-get install lame -y
 sudo apt-get install ffmpeg -y
 sudo apt-get install adb -y
+sudo apt-get install latte-dock -y
 sudo apt-get install fastboot -y
 sudo apt-get install exfat-fuse exfat-utils -y
 #sudo apt-get install libinput-tools -y
