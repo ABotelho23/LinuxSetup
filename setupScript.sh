@@ -58,6 +58,12 @@ else
 NVIDIA="no"
 fi
 
+read -r -p "Set GTK apps scale to 2.0 for your user? " gtkscaleset
+if [[ "$gtkscaleset" =~ ^([yY][eE][sS]|[yY])+$ ]]
+echo 'export GDK_SCALE=2' >> $HOME/.config/$HOME/.config/plasma-workspace/env/gtkScale.sh
+echo 'export GDK_DPI_SCALE=0.5' >> $HOME/.config/$HOME/.config/plasma-workspace/env/gtkScale.sh
+fi
+
 echo "Starting script! Please do not stop this script once it has started."
 
 #enable 32-bit
