@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "This script will update your system."
 echo "This script will install a large amount of software."
-echo "This script will only remove Dolphin, Konsole and Kate."
+echo "This script will only remove Dolphin, Konsole, Kate, and K3b."
 echo "This script assumes you selected minimal install option. This script might break things if your install isn't minimal"
 echo "I recommend running this script from /tmp. That will ensure this script and its downloads get wiped after reboot."
 
@@ -77,6 +77,7 @@ sudo apt-get install tilix -y
 sudo apt-get remove dolphin -y
 sudo apt-get remove konsole -y
 sudo apt-get remove kate -y
+sudo apt-get remove k3b -y
 
 #do updates and software upgrades
 sudo apt-get update
@@ -127,7 +128,6 @@ sudo apt-get install adb -y
 sudo apt-get install latte-dock -y
 sudo apt-get install fastboot -y
 sudo apt-get install exfat-fuse exfat-utils -y
-#sudo apt-get install libinput-tools -y
 sudo apt-get install openssh-server -y
 sudo apt-get install blender -y
 sudo apt-get install avahi-discover -y
@@ -136,7 +136,6 @@ sudo apt-get install easytag -y
 sudo apt-get install qemu-kvm -y
 sudo usermod -a -G kvm $USER
 sudo apt-get install mosh -y
-#sudo apt-get install kde-gtk-config -y #for GTK themes in KDE
 
 #new ppa/repo adds
 sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut
