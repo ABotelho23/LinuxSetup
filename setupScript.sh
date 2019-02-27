@@ -317,7 +317,7 @@ sudo cp ./Pop-plasma-theme/color-scheme/Pop_Dark.colors /usr/share/color-schemes
 #KDE Pop theme 2
 git clone git://github.com/trgeiger/pop-kde.git
 sudo cp -R ./pop-kde/plasma/desktoptheme/Pop /usr/share/plasma/desktoptheme/
-sudo cp ./pop-kde/color-scheme/Pop.colors /usr/share/color-schemes/
+sudo cp ./pop-kde/color-schemes/Pop.colors /usr/share/color-schemes/
 sudo cp -R ./pop-kde/Kvantum/Pop /usr/share/Kvantum/
 
 #wireshark install near the end cause graphical
