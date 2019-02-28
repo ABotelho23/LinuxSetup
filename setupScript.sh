@@ -342,7 +342,8 @@ echo 'source /etc/profile.d/vte.sh' >> $HOME/.bashrc
 echo 'fi' >> $HOME/.bashrc
 ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
 
-sudo apt autoremove
+#clean up
+sudo apt autoremove && sudo apt clean
 
 echo "Don't forget! Set your theme, set your icons, set your fonts!"
 
