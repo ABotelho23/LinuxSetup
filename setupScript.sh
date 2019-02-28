@@ -334,8 +334,8 @@ sudo dpkg-reconfigure wireshark-common
 sudo usermod -a -G wireshark $USER
 
 #tilix fix
-echo 'if [[ $TILIX_ID ]]; then' >> /home/$USER/.bashrc
-echo 'source /etc/profile.d/vte.sh' >> /home/$USER/.bashrc
+echo 'if [[ $TILIX_ID ]]; then' >> /$HOME/.bashrc
+echo 'source /etc/profile.d/vte.sh' >> /$HOME/.bashrc
 echo 'fi' >> /home/$USER/.bashrc
 ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
 
