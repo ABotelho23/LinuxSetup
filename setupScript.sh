@@ -328,6 +328,9 @@ sudo cp -R ./pop-kde/plasma/desktoptheme/Pop /usr/share/plasma/desktoptheme/
 sudo cp ./pop-kde/color-schemes/Pop.colors /usr/share/color-schemes/
 sudo cp -R ./pop-kde/Kvantum/Pop /usr/share/Kvantum/
 
+#KDE Pop theme 3
+sudo cp Pop_Dark.colors /usr/share/color-schemes/
+
 #wireshark install near the end cause graphical
 sudo apt-get install wireshark -y
 sudo dpkg-reconfigure wireshark-common
