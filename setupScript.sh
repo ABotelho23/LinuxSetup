@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "This script will update your system."
 echo "This script will install a large amount of software."
-echo "This script will only remove Dolphin, Konsole, Kate, and K3b."
+echo "This script will only remove Dolphin, Konsole, Kate, Gwenview, S and K3b."
 echo "This script assumes you selected minimal install option. This script might break things if your install isn't minimal"
 echo "I recommend running this script from /tmp. That will ensure this script and its downloads get wiped after reboot."
 
@@ -79,6 +79,8 @@ sudo apt-get remove dolphin -y
 sudo apt-get remove konsole -y
 sudo apt-get remove kate -y
 sudo apt-get remove k3b -y
+sudo apt-get remove gwenview -y
+sudo apt-get remove skanlite -y
 
 #do updates and software upgrades
 sudo apt-get update
