@@ -340,7 +340,7 @@ sudo usermod -a -G wireshark $USER
 echo 'if [[ $TILIX_ID ]]; then' >> $HOME/.bashrc
 echo 'source /etc/profile.d/vte.sh' >> $HOME/.bashrc
 echo 'fi' >> $HOME/.bashrc
-ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
+sudo ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
 
 sudo apt autoremove
 
