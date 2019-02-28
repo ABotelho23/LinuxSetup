@@ -61,7 +61,8 @@ fi
 read -r -p "Set GTK apps scale to 2.0 for your user? " gtkscaleset
 if [[ "$gtkscaleset" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
-echo mkdir $HOME/.config/plasma-workspace/env/gtkScale.sh
+mkdir -p $HOME/.config/plasma-workspace/env/
+touch $HOME/.config/plasma-workspace/env/gtkScale.sh
 echo 'export GDK_SCALE=2' >> $HOME/.config/plasma-workspace/env/gtkScale.sh
 echo 'export GDK_DPI_SCALE=0.5' >> $HOME/.config/plasma-workspace/env/gtkScale.sh
 fi
