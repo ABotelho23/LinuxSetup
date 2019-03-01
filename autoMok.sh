@@ -3,7 +3,6 @@
 #create generic conf file
 echo 'POST_BUILD=../../../../../../root/sign-kernel.sh' >> /etc/dkms/sign-kernel-objects.conf
 
-
 echo '#!/bin/bash
 
 cd ../$kernelver/$arch/module/
