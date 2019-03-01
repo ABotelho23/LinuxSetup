@@ -67,6 +67,26 @@ echo 'export GDK_SCALE=2' >> $HOME/.config/plasma-workspace/env/gtkScale.sh
 echo 'export GDK_DPI_SCALE=0.5' >> $HOME/.config/plasma-workspace/env/gtkScale.sh
 fi
 
+#autosign
+read -r -p "Auto-sign wireguard and virtualbox modules? (doesn't currently work for other modules, be careful!) " autosign
+if [[ "$autosign" =~ ^([yY][eE][sS]|[yY])+$ ]]
+#create generic conf file
+echo 'POST_BUILD=../../../../../../root/sign-kernel.sh' | sudo tee -a /etc/dkms/sign-kernel-objects.conf
+
+secho '#!/bin/bash
+
+cd ../$kernelver/$arch/module/
+
+for kernel_object in *ko; do
+     echo "Signing kernel_object: $kernel_object"
+    /usr/src/linux-headers-$kernelver/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der "$kernel_object";
+done' | sudo tee -a /root/sign-kernel.sh
+
+sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/virtualbox.conf
+sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/wireguard.conf
+fi
+
+
 echo "Starting script! Please do not stop this script once it has started."
 
 #enable 32-bit
@@ -341,22 +361,6 @@ echo 'if [[ $TILIX_ID ]]; then' >> $HOME/.bashrc
 echo 'source /etc/profile.d/vte.sh' >> $HOME/.bashrc
 echo 'fi' >> $HOME/.bashrc
 ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
-
-#autosign
-#create generic conf file
-sudo echo 'POST_BUILD=../../../../../../root/sign-kernel.sh' >> /etc/dkms/sign-kernel-objects.conf
-
-sudo echo '#!/bin/bash
-
-cd ../$kernelver/$arch/module/
-
-for kernel_object in *ko; do
-     echo "Signing kernel_object: $kernel_object"
-    /usr/src/linux-headers-$kernelver/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der "$kernel_object";
-done' >> /root/sign-kernel.sh
-
-sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/virtualbox.conf
-sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/wireguard.conf
 
 #clean up
 sudo apt autoremove && sudo apt clean
