@@ -73,7 +73,7 @@ if [[ "$autosign" =~ ^([yY][eE][sS]|[yY])+$ ]]
 #create generic conf file
 echo 'POST_BUILD=../../../../../../root/sign-kernel.sh' | sudo tee -a /etc/dkms/sign-kernel-objects.conf
 
-secho '#!/bin/bash
+echo '#!/bin/bash
 
 cd ../$kernelver/$arch/module/
 
