@@ -69,23 +69,6 @@ fi
 
 #autosign
 read -r -p "Auto-sign wireguard and virtualbox modules? (doesn't currently work for other modules, be careful!) " autosign
-if [[ "$autosign" =~ ^([yY][eE][sS]|[yY])+$ ]]
-#create generic conf file
-echo 'POST_BUILD=../../../../../../root/sign-kernel.sh' | sudo tee -a /etc/dkms/sign-kernel-objects.conf
-
-echo '#!/bin/bash
-
-cd ../$kernelver/$arch/module/
-
-for kernel_object in *ko; do
-     echo "Signing kernel_object: $kernel_object"
-    /usr/src/linux-headers-$kernelver/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der "$kernel_object";
-done' | sudo tee -a /root/sign-kernel.sh
-
-sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/virtualbox.conf
-sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/wireguard.conf
-fi
-
 
 echo "Starting script! Please do not stop this script once it has started."
 
@@ -361,6 +344,50 @@ echo 'if [[ $TILIX_ID ]]; then' >> $HOME/.bashrc
 echo 'source /etc/profile.d/vte.sh' >> $HOME/.bashrc
 echo 'fi' >> $HOME/.bashrc
 ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
+
+if [[ "$autosign" =~ ^([yY][eE][sS]|[yY])+$ ]]
+
+#ensure openssl is installed
+sudo apt-get install openssl -y
+
+#create keys
+openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -outform DER -out MOK.der -nodes -days 36500 -subj "/CN=Descriptive common name/"
+
+#sign modules
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ./MOK.priv ./MOK.der $(modinfo -n vboxdrv)
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ./MOK.priv ./MOK.der $(modinfo -n vboxnetadp)
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ./MOK.priv ./MOK.der $(modinfo -n vboxnetflt)
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ./MOK.priv ./MOK.der $(modinfo -n vboxpci)
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 ./MOK.priv ./MOK.der $(modinfo -n wireguard-dkms)
+
+#check modules are signed
+tail $(modinfo -n vboxdrv) | grep "Module signature appended"
+tail $(modinfo -n vboxnetadp) | grep "Module signature appended"
+tail $(modinfo -n vboxnetflt) | grep "Module signature appended"
+tail $(modinfo -n vboxpci) | grep "Module signature appended"
+tail $(modinfo -n wireguard-dkms) | grep "Module signature appended"
+
+#enroll the key
+sudo mokutil --import MOK.der
+
+#confirm key is enrolled
+mokutil --test-key MOK.der
+
+#auto re-sign: create generic conf file
+echo 'POST_BUILD=../../../../../../root/sign-kernel.sh' | sudo tee -a /etc/dkms/sign-kernel-objects.conf
+
+echo '#!/bin/bash
+
+cd ../$kernelver/$arch/module/
+
+for kernel_object in *ko; do
+     echo "Signing kernel_object: $kernel_object"
+    /usr/src/linux-headers-$kernelver/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der "$kernel_object";
+done' | sudo tee -a /root/sign-kernel.sh
+
+sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/virtualbox.conf
+sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/wireguard.conf
+fi
 
 #clean up
 sudo apt autoremove && sudo apt clean
