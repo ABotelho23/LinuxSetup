@@ -186,7 +186,8 @@ sudo apt-get install grub-customizer -y
 sudo apt-get install android-studio -y
 sudo apt-get install google-chrome-stable -y
 sudo apt-get install eclipse-ide-java -y
-sudo apt-get install system76-pop-gtk-theme system76-pop-icon-theme -y
+sudo apt-get install system76-pop-gtk-theme -y
+sudo apt-get install system76-pop-icon-theme -y
 sudo apt-get install powershell -y
 sudo apt-get install signal-desktop -y
 sudo apt-get install dart -y
