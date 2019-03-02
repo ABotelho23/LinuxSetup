@@ -385,6 +385,7 @@ for kernel_object in *ko; do
     /usr/src/linux-headers-$kernelver/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der "$kernel_object";
     mokutil --import /root/MOK.der
 done' | sudo tee -a /root/sign-kernel.sh
+sudo chmod +x /root/sign-kernel.sh
 
 sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/virtualbox.conf
 sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/wireguard.conf
