@@ -308,17 +308,6 @@ timedatectl set-local-rtc 1
 #make Nemo default FM
 #xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
 
-#download and install Plank themes
-#git clone git://github.com/LinxGem33/Plank-Themes.git
-#sudo cp -r ./Plank-Themes/'Plank Themes'/* /usr/share/plank/themes
-
-#more plank themes
-#git clone git://github.com/erikdubois/plankthemes.git
-#sudo cp -r ./plankthemes/* /usr/share/plank/themes
-#sudo rm -r /usr/share/plank/themes/setup-git-v1.sh
-#sudo rm -r /usr/share/plank/themes/git-v1.sh
-#sudo rm -r /usr/share/plank/themes/README.md
-
 #KDE Pop theme 1
 git clone git://github.com/Nequo/Pop-plasma-theme.git
 sudo mkdir /usr/share/aurorae
