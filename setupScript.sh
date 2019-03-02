@@ -368,10 +368,10 @@ tail $(modinfo -n vboxpci) | grep "Module signature appended"
 tail $(modinfo -n wireguard) | grep "Module signature appended"
 
 #enroll the key
-sudo mokutil --import MOK.der
+sudo mokutil --import /root/MOK.der
 
 #confirm key is enrolled
-mokutil --test-key MOK.der
+mokutil --test-key /root/MOK.der
 
 #auto re-sign: create generic conf file
 echo 'POST_BUILD=../../../../../../root/sign-kernel.sh' | sudo tee -a /etc/dkms/sign-kernel-objects.conf
