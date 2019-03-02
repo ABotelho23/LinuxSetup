@@ -346,7 +346,7 @@ echo 'fi' >> $HOME/.bashrc
 ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
 
 if [[ "$autosign" =~ ^([yY][eE][sS]|[yY])+$ ]]
-
+then
 #ensure openssl is installed
 sudo apt-get install openssl -y
 
