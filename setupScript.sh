@@ -60,7 +60,7 @@ echo 'export GDK_DPI_SCALE=0.5' >> $HOME/.config/plasma-workspace/env/gtkScale.s
 fi
 
 #autosign
-read -r -p "Auto-sign DKSM modules that are installed by this script? " autosign
+read -r -p "Auto-sign DKMS modules that are installed by this script? " autosign
 
 echo "Starting script! Please do not stop this script once it has started."
 
