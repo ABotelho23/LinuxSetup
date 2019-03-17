@@ -26,14 +26,6 @@ else
 PCLOUD="no"
 fi
 
-read -r -p "Install Google Play Music Manager? [y/N] " response
-if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
-then
-MUSICMANAGER="yes"
-else
-MUSICMANAGER="no"
-fi
-
 read -r -p "Install OpenRazer/Polychromatic? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
@@ -253,16 +245,6 @@ if [ $PCLOUD = "yes" ]; then
     disown
 else
 	echo "pCloud install not selected. Skipping..."
-fi
-
-#check if installs google play music manager
-if [ $MUSICMANAGER = "yes" ]; then
-    echo "Google Play Music Manager install selected. Installing."
-    sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/musicmanager/deb/ stable main" >> /etc/apt/sources.list.d/google.list' #google play music manager repo
-	sudo apt-get update
-	sudo apt-get install google-musicmanager-beta
-else
-	echo "Google Play Music Manager install not selected. Skipping..."
 fi
 
 #check if installs openrazer
