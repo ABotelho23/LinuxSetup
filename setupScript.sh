@@ -367,12 +367,44 @@ sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv 
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n vboxpci)
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n wireguard)
 
+if [ $OPENRAZER = "yes" ]; then
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razerkbd)
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razermouse)
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razerfirefly)
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razerkraken)
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razermug)
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razercore)
+fi
+
+if [ $NVIDIA = "yes" ]; then
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n nvidia)
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n nvidia-modeset)
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n nvidia-drm)
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n nvidia-uvm)
+fi
+
 #check modules are signed
 tail $(modinfo -n vboxdrv) | grep "Module signature appended"
 tail $(modinfo -n vboxnetadp) | grep "Module signature appended"
 tail $(modinfo -n vboxnetflt) | grep "Module signature appended"
 tail $(modinfo -n vboxpci) | grep "Module signature appended"
 tail $(modinfo -n wireguard) | grep "Module signature appended"
+
+if [ $OPENRAZER = "yes" ]; then
+tail $(modinfo -n razerkbd) | grep "Module signature appended"
+tail $(modinfo -n razermouse) | grep "Module signature appended"
+tail $(modinfo -n razerfirefly) | grep "Module signature appended"
+tail $(modinfo -n razerkraken) | grep "Module signature appended"
+tail $(modinfo -n razermug) | grep "Module signature appended"
+tail $(modinfo -n razercore) | grep "Module signature appended"
+fi
+
+if [ $NVIDIA = "yes" ]; then
+tail $(modinfo -n nvidia) | grep "Module signature appended"
+tail $(modinfo -n nvidia-modeset) | grep "Module signature appended"
+tail $(modinfo -n nvidia-drm) | grep "Module signature appended"
+tail $(modinfo -n nvidia-uvm) | grep "Module signature appended"
+fi
 
 #enroll the key
 sudo mokutil --import /root/MOK.der
@@ -396,6 +428,15 @@ sudo chmod +x /root/sign-kernel.sh
 
 sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/virtualbox.conf
 sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/wireguard.conf
+
+if [ $OPENRAZER = "yes" ]; then
+sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/openrazer-driver.conf
+fi
+
+if [ $NVIDIA = "yes" ]; then
+sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/nvidia.conf
+fi
+
 fi
 
 #clean up
