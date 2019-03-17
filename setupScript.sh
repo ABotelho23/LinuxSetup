@@ -317,7 +317,6 @@ sudo cp -R ./pop-kde/Kvantum/Pop /usr/share/Kvantum/
 sudo cp Pop_Dark.colors /usr/share/color-schemes/
 
 #Gnome Pop theme 1
-wget https://dl.opendesktop.org/api/files/download/id/1516927931/s/eba32366bc8ebc13e8fb32c3f33437174cfa1caf6f68f02f616fc4810cce5b6049e40d79c43bd076afef0510150a6dbe8e6b8885ddbe114460c95fee3fe706c4/t/1552847564/u//Pop-Remix.zip -O ./Pop-Remix.zip
 unzip Pop-Remix.zip
 sudo cp -R ./Pop-Remix /usr/share/themes
 
