@@ -184,6 +184,7 @@ sudo apt-get install system76-pop-icon-theme -y
 sudo apt-get install powershell -y
 sudo apt-get install signal-desktop -y
 sudo sed -i '/Exec/s/$/ --use-tray-icon/' /usr/share/applications/signal-desktop.desktop #enable use tray icon for signal
+mkdir $HOME/.config/autostart/signal-desktop.desktop
 echo '[Desktop Entry]
 Name=Signal
 Comment=Private messaging from your desktop
