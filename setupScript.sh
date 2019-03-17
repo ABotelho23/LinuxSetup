@@ -191,6 +191,16 @@ sudo apt-get install system76-pop-gtk-theme -y
 sudo apt-get install system76-pop-icon-theme -y
 sudo apt-get install powershell -y
 sudo apt-get install signal-desktop -y
+sudo sed -i '/Exec/s/$/ --use-tray-icon/' /usr/share/applications/signal-desktop.desktop #enable use tray icon for signal
+echo '[Desktop Entry]
+Name=Signal
+Comment=Private messaging from your desktop
+Exec="/opt/Signal/signal-desktop" %U --start-in-tray
+Terminal=false
+Type=Application
+Icon=signal-desktop
+StartupWMClass=Signal
+Categories=Network;' > $HOME/.config/autostart/signal-desktop.desktop #enable signal autostart
 sudo apt-get install dart -y
 #add dart to PATH
 echo 'export PATH="$PATH":/usr/lib/dart/bin' >> ~/.bashrc
