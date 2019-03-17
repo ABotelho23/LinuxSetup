@@ -304,7 +304,7 @@ sudo cp -R ./DesktopFiles/* /usr/share/applications
 sudo cp -R ./icons/* /usr/share/icons
 sudo rm /usr/share/applications/android-messages-desktop.desktop
 
-#install Roboto monitor
+#install Roboto mono
 sudo mkdir /usr/share/fonts/robotomono
 sudo cp -R ./RobotoMono/* /usr/share/fonts/robotomono
 
