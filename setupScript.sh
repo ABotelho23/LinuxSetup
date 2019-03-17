@@ -317,7 +317,7 @@ sudo cp -R ./pop-kde/Kvantum/Pop /usr/share/Kvantum/
 sudo cp Pop_Dark.colors /usr/share/color-schemes/
 
 #Gnome Pop theme 1
-unzip Pop-Remix.zip
+sudo unzip Pop-Remix.zip
 sudo cp -R ./Pop-Remix /usr/share/themes
 
 #wireshark install near the end cause graphical
