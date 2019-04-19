@@ -187,7 +187,7 @@ sudo apt-get install signal-desktop -y
 sudo rm /usr/share/applications/signal-desktop.desktop
 sudo sed -i '/Exec/s/$/ --use-tray-icon/' /usr/share/applications/signal-desktop.desktop #enable use tray icon for signal
 
-touch /usr/share/applications/signal-desktop.desktop
+sudo touch /usr/share/applications/signal-desktop.desktop
 echo '[Desktop Entry]
 Name=Signal
 Comment=Private messaging from your desktop
