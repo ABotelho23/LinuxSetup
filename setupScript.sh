@@ -90,7 +90,6 @@ sudo apt-get install audacity -y
 sudo apt-get install deluge -y
 sudo apt-get install gnome-disk-utility -y
 sudo apt-get install gparted -y
-sudo apt-get install gimp -y
 sudo apt-get install inkscape -y
 sudo apt-get install libreoffice -y
 sudo apt-get install gcc -y
@@ -150,6 +149,7 @@ sudo apt-add-repository ppa:maarten-fonville/android-studio -y
 sudo add-apt-repository ppa:mmk2410/eclipse-ide-java -y #up to date eclipse
 sudo add-apt-repository ppa:noobslab/themes -y #for pop theme
 sudo add-apt-repository ppa:noobslab/icons -y #for pop icons
+sudo add-apt-repository ppa:otto-kesselgulasch/gimp -y #more recent GIMP versions
 
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - #google pub key
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' #google chrome repo
@@ -182,6 +182,7 @@ sudo apt-get install eclipse-ide-java -y
 sudo apt-get install system76-pop-gtk-theme -y
 sudo apt-get install system76-pop-icon-theme -y
 sudo apt-get install powershell -y
+sudo apt-get install gimp -y
 sudo apt-get install signal-desktop -y
 sudo sed -i '/Exec/s/$/ --use-tray-icon/' /usr/share/applications/signal-desktop.desktop #enable use tray icon for signal
 mkdir $HOME/.config/autostart/signal-desktop.desktop
