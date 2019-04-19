@@ -183,11 +183,9 @@ sudo apt-get install system76-pop-gtk-theme -y
 sudo apt-get install system76-pop-icon-theme -y
 sudo apt-get install powershell -y
 sudo apt-get install gimp -y
-sudo apt-get install signal-desktop -y
-sudo rm /usr/share/applications/signal-desktop.desktop
-sudo sed -i '/Exec/s/$/ --use-tray-icon/' /usr/share/applications/signal-desktop.desktop #enable use tray icon for signal
 
-sudo touch /usr/share/applications/signal-desktop.desktop
+#signal takes some tweaking in KDE
+sudo apt-get install signal-desktop -y
 echo '[Desktop Entry]
 Name=Signal
 Comment=Private messaging from your desktop
@@ -196,7 +194,7 @@ Terminal=false
 Type=Application
 Icon=signal-desktop
 StartupWMClass=Signal
-Categories=Network;' > /usr/share/applications/signal-desktop.desktop #enable signal autostart
+Categories=Network;' | sudo tee /usr/share/applications/signal-desktop.desktop
 
 mkdir $HOME/.config/autostart
 touch $HOME/.config/autostart/signal-desktop.desktop
