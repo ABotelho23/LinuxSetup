@@ -184,13 +184,26 @@ sudo apt-get install system76-pop-icon-theme -y
 sudo apt-get install powershell -y
 sudo apt-get install gimp -y
 sudo apt-get install signal-desktop -y
+sudo rm /usr/share/applications/signal-desktop.desktop
 sudo sed -i '/Exec/s/$/ --use-tray-icon/' /usr/share/applications/signal-desktop.desktop #enable use tray icon for signal
+
+touch /usr/share/applications/signal-desktop.desktop
+echo '[Desktop Entry]
+Name=Signal
+Comment=Private messaging from your desktop
+Exec=env XDG_CURRENT_DESKTOP=Unity signal-desktop %U --start-in-tray
+Terminal=false
+Type=Application
+Icon=signal-desktop
+StartupWMClass=Signal
+Categories=Network;' > $HOME/.config/autostart/signal-desktop.desktop #enable signal autostart
+
 mkdir $HOME/.config/autostart
 touch $HOME/.config/autostart/signal-desktop.desktop
 echo '[Desktop Entry]
 Name=Signal
 Comment=Private messaging from your desktop
-Exec="/opt/Signal/signal-desktop" %U --start-in-tray
+Exec=env XDG_CURRENT_DESKTOP=Unity signal-desktop %U --start-in-tray
 Terminal=false
 Type=Application
 Icon=signal-desktop
