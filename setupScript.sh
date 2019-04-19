@@ -185,7 +185,8 @@ sudo apt-get install powershell -y
 sudo apt-get install gimp -y
 sudo apt-get install signal-desktop -y
 sudo sed -i '/Exec/s/$/ --use-tray-icon/' /usr/share/applications/signal-desktop.desktop #enable use tray icon for signal
-mkdir $HOME/.config/autostart/signal-desktop.desktop
+mkdir $HOME/.config/autostart
+touch $HOME/.config/autostart/signal-desktop.desktop
 echo '[Desktop Entry]
 Name=Signal
 Comment=Private messaging from your desktop
