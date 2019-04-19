@@ -196,7 +196,7 @@ Terminal=false
 Type=Application
 Icon=signal-desktop
 StartupWMClass=Signal
-Categories=Network;' > $HOME/.config/autostart/signal-desktop.desktop #enable signal autostart
+Categories=Network;' > /usr/share/applications/signal-desktop.desktop #enable signal autostart
 
 mkdir $HOME/.config/autostart
 touch $HOME/.config/autostart/signal-desktop.desktop
@@ -209,6 +209,7 @@ Type=Application
 Icon=signal-desktop
 StartupWMClass=Signal
 Categories=Network;' > $HOME/.config/autostart/signal-desktop.desktop #enable signal autostart
+
 sudo apt-get install dart -y
 #add dart to PATH
 echo 'export PATH="$PATH":/usr/lib/dart/bin' >> ~/.bashrc
