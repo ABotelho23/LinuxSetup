@@ -320,9 +320,9 @@ sudo cp -R ./pop-kde/Kvantum/Pop /usr/share/Kvantum/
 #KDE Pop theme 3
 sudo cp Pop_Dark.colors /usr/share/color-schemes/
 
-#Gnome Pop theme 1
-sudo unzip Pop-Remix.zip
-sudo cp -R ./Pop-Remix /usr/share/themes
+#Gnome custom Pop theme
+wget --recursive --no-parent -np -R "index.html*" https://files.abotelho.net/customPop/
+sudo cp -R ./files.abotelho.net/customPop /usr/share/themes
 
 #wireshark install near the end cause graphical
 sudo apt-get install wireshark -y
