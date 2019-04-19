@@ -18,14 +18,6 @@ else
 INSYNC="no"
 fi
 
-read -r -p "Install Pcloud? [y/N] (DISABLED)" response
-if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
-then
-PCLOUD="no"
-else
-PCLOUD="no"
-fi
-
 read -r -p "Install OpenRazer/Polychromatic? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
@@ -248,18 +240,6 @@ if [ $INSYNC = "yes" ]; then
     sudo gdebi ./deb/insync.deb -n
 else
 	echo "Insync install not selected. Skipping..."
-fi
-
-if [ $PCLOUD = "yes" ]; then
-    echo "pCloud install selected. Installing."
-    wget --show-progress "https://www.pcloud.com/how-to-install-pcloud-drive-linux.html?download=electron-64" -O ./deb/pcloud
-    sudo mkdir /opt/pcloud
-    sudo cp ./deb/pcloud
-    sudo chmod +x ./deb/pcloud
-    /opt/pcloud/pcloud &
-    disown
-else
-	echo "pCloud install not selected. Skipping..."
 fi
 
 #check if installs openrazer
