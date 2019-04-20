@@ -139,7 +139,6 @@ sudo add-apt-repository ppa:wireguard/wireguard -y #wireguard
 sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y
 sudo apt-add-repository ppa:maarten-fonville/android-studio -y
 sudo add-apt-repository ppa:mmk2410/eclipse-ide-java -y #up to date eclipse
-sudo add-apt-repository ppa:noobslab/themes -y #for pop theme
 sudo add-apt-repository ppa:noobslab/icons -y #for pop icons
 sudo add-apt-repository ppa:otto-kesselgulasch/gimp -y #more recent GIMP versions
 
@@ -171,7 +170,6 @@ sudo apt-get install grub-customizer -y
 sudo apt-get install android-studio -y
 sudo apt-get install google-chrome-stable -y
 sudo apt-get install eclipse-ide-java -y
-sudo apt-get install system76-pop-gtk-theme -y
 sudo apt-get install system76-pop-icon-theme -y
 sudo apt-get install powershell -y
 sudo apt-get install gimp -y
