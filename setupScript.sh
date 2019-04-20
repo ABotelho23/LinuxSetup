@@ -341,7 +341,7 @@ sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv 
 if [ $OPENRAZER = "yes" ]; then
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razerkbd)
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razermouse)
-sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razerfirefly)
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razermousemat)
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razerkraken)
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razermug)
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razercore)
@@ -364,7 +364,7 @@ tail $(modinfo -n wireguard) | grep "Module signature appended"
 if [ $OPENRAZER = "yes" ]; then
 tail $(modinfo -n razerkbd) | grep "Module signature appended"
 tail $(modinfo -n razermouse) | grep "Module signature appended"
-tail $(modinfo -n razerfirefly) | grep "Module signature appended"
+tail $(modinfo -n razermousemat) | grep "Module signature appended"
 tail $(modinfo -n razerkraken) | grep "Module signature appended"
 tail $(modinfo -n razermug) | grep "Module signature appended"
 tail $(modinfo -n razercore) | grep "Module signature appended"
