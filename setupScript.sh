@@ -290,7 +290,7 @@ sudo cp -R ./RobotoMono/* /usr/share/fonts/robotomono
 timedatectl set-local-rtc 1
 
 #fix open in terminal for tilix
-gsettings set org.cinnamon.desktop.default-applications.terminal exec tilix
+gsettings set org.gnome.desktop.default-applications.terminal exec tilix
 
 #KDE Pop theme 1
 git clone git://github.com/Nequo/Pop-plasma-theme.git
