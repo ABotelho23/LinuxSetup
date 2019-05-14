@@ -64,12 +64,7 @@ sudo apt-get install nemo -y
 sudo apt-get install tilix -y
 
 #removals
-sudo apt-get remove dolphin -y
-sudo apt-get remove konsole -y
-sudo apt-get remove kate -y
-sudo apt-get remove k3b -y
-sudo apt-get remove gwenview -y
-sudo apt-get remove skanlite -y
+sudo apt-get remove dolphin konsole kate k3b gwenview skanlite -y
 sudo apt autoremove -y #clean up after removals
 
 #do updates and software upgrades
@@ -77,12 +72,8 @@ sudo apt-get update
 sudo apt-get upgrade -y
 
 #installs
+sudo apt-get install asunder audacity deluge gnome-disk-utility gparted -y
 sudo apt-get install gdebi -y
-sudo apt-get install asunder -y
-sudo apt-get install audacity -y
-sudo apt-get install deluge -y
-sudo apt-get install gnome-disk-utility -y
-sudo apt-get install gparted -y
 sudo apt-get install inkscape -y
 sudo apt-get install libreoffice -y
 sudo apt-get install gcc -y
@@ -176,8 +167,8 @@ sudo apt-get install google-chrome-stable -y
 sudo apt-get install system76-pop-icon-theme -y
 sudo apt-get install powershell -y
 sudo apt-get install gimp -y
-sudo apt install vscodium -y
-sudo apt install plank -y
+sudo apt-get install vscodium -y
+sudo apt-get install plank -y
 sudo apt-get install signal-desktop -y
 
 #signal takes some tweaking in KDE
