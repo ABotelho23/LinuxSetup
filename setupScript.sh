@@ -104,8 +104,8 @@ sudo apt-get install p7zip-full -y
 sudo apt-get install traceroute -y
 sudo apt-get install net-tools -y
 sudo apt-get install putty -y
-sudo apt-get install default-jdk -y
-sudo apt-get install default-jre -y
+sudo apt-get install openjdk-11-jdk -y
+sudo apt-get install openjdk-11-jre -y
 sudo apt-get install network-manager* -y
 sudo apt-get install redshift -y
 sudo apt-get install neofetch -y
