@@ -70,6 +70,7 @@ sudo apt-get remove kate -y
 sudo apt-get remove k3b -y
 sudo apt-get remove gwenview -y
 sudo apt-get remove skanlite -y
+sudo apt autoremove -y #clean up after removals
 
 #do updates and software upgrades
 sudo apt-get update
@@ -116,7 +117,6 @@ sudo apt-get install openvpn -y
 sudo apt-get install lame -y
 sudo apt-get install ffmpeg -y
 sudo apt-get install adb -y
-sudo apt-get install latte-dock -y
 sudo apt-get install fastboot -y
 sudo apt-get install exfat-fuse exfat-utils -y
 sudo apt-get install openssh-server -y
@@ -124,6 +124,7 @@ sudo apt-get install blender -y
 sudo apt-get install avahi-discover -y
 sudo apt-get install ffmpegthumbnailer -y
 sudo apt-get install easytag -y
+sudo apt-get install brother-* -y
 sudo apt-get install qemu-kvm -y
 sudo usermod -a -G kvm $USER
 sudo apt-get install mosh -y
@@ -134,12 +135,12 @@ sudo add-apt-repository ppa:gezakovacs/ppa -y #unetbootin
 sudo add-apt-repository ppa:nilarimogard/webupd8 -y #woeusb
 sudo add-apt-repository ppa:notepadqq-team/notepadqq -y #notepadqq
 sudo add-apt-repository ppa:unit193/encryption -y #veracrypt
-sudo add-apt-repository ppa:webupd8team/atom -y #atom
 sudo add-apt-repository ppa:wireguard/wireguard -y #wireguard
 sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y
 sudo apt-add-repository ppa:maarten-fonville/android-studio -y
 sudo add-apt-repository ppa:noobslab/icons -y #for pop icons
 sudo add-apt-repository ppa:otto-kesselgulasch/gimp -y #more recent GIMP versions
+sudo add-apt-repository ppa:ricotz/docky -y #Plank with zoom
 
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - #google pub key
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' #google chrome repo
@@ -153,8 +154,12 @@ sudo dpkg -i packages-microsoft-prod.deb
 curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
 echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal.list
 
+#VSCodium
+wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | sudo apt-key add -
+echo 'deb https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/debs/ vscodium main' | sudo tee --a /etc/apt/sources.list.d/vscodium.list
+
 sudo apt-get install apt-transport-https #depends for dart
-sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
+#sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
 
 #update after repo adds
 sudo apt-get update
@@ -171,9 +176,11 @@ sudo apt-get install google-chrome-stable -y
 sudo apt-get install system76-pop-icon-theme -y
 sudo apt-get install powershell -y
 sudo apt-get install gimp -y
+sudo apt install vscodium -y
+sudo apt install plank -y
+sudo apt-get install signal-desktop -y
 
 #signal takes some tweaking in KDE
-sudo apt-get install signal-desktop -y
 echo '[Desktop Entry]
 Name=Signal
 Comment=Private messaging from your desktop
@@ -229,11 +236,23 @@ sudo gdebi ./deb/discord.deb -n
 wget --show-progress "https://github.com/chrisknepper/android-messages-desktop/releases/download/v1.0.1/android-messages-desktop_1.0.1_amd64.deb" -O ./deb/androidmessages.deb
 sudo gdebi ./deb/androidmessages.deb -n
 
+#brother drivers from brother.com
+wget --showprogress "https://download.brother.com/welcome/dlf005893/hl2270dwlpr-2.1.0-1.i386.deb" -O ./deb/brotherlpr.deb
+sudo gdebi ./deb/brotherlpr.deb -n
+wget --show-progress "https://download.brother.com/welcome/dlf005895/cupswrapperHL2270DW-2.0.4-2.i386.deb" -O ./deb/brothercups.deb
+sudo gdebi ./deb/brothercups.deb -n
+
+#Slack
+wget --show-progress "https://downloads.slack-edge.com/linux_releases/slack-desktop-3.4.0-amd64.deb" -O ./deb/slack.deb
+sudo gdebi ./deb/slack.deb -n
+
 #check if installs insync
 if [ $INSYNC = "yes" ]; then
     echo "Insync install selected. Installing."
     wget --show-progress "https://d2t3ff60b2tol4.cloudfront.net/builds/insync_1.5.5.37367-artful_amd64.deb" -O ./deb/insync.deb
     sudo gdebi ./deb/insync.deb -n
+    sudo apt-get update
+    sudo apt-get install insync-nemo -y
 else
 	echo "Insync install not selected. Skipping..."
 fi
@@ -308,9 +327,14 @@ sudo cp -R ./pop-kde/Kvantum/Pop /usr/share/Kvantum/
 #KDE Pop theme 3
 sudo cp Pop_Dark.colors /usr/share/color-schemes/
 
-#Gnome custom Pop theme
-wget --recursive --no-parent -np -R "index.html*" https://files.abotelho.net/customPop/
-sudo cp -R ./files.abotelho.net/customPop /usr/share/themes
+#pop compiled for Gnome
+sudo apt install libtool pkg-config sassc inkscape optipng parallel libglib2.0-dev libgdk-pixbuf2.0-dev librsvg2-dev libxml2-utils -y
+git clone https://github.com/pop-os/gtk-theme.git
+cd gtk-theme
+make clean
+make
+sudo make install
+cd ..
 
 #wireshark install near the end cause graphical
 sudo apt-get install wireshark -y
