@@ -327,6 +327,17 @@ make
 sudo make install
 cd ..
 
+#Plan themes
+git clone git://github.com/erikdubois/plankthemes.git
+sudo cp -r ./plankthemes/* /usr/share/plank/themes
+sudo rm -r /usr/share/plank/themes/setup-git-v1.sh
+sudo rm -r /usr/share/plank/themes/git-v1.sh
+sudo rm -r /usr/share/plank/themes/README.md
+
+#more Plank themes
+git clone git://github.com/LinxGem33/Plank-Themes.git
+sudo cp -r ./Plank-Themes/'Plank Themes'/* /usr/share/plank/themes
+
 #wireshark install near the end cause graphical
 sudo apt-get install wireshark -y
 sudo dpkg-reconfigure wireshark-common
