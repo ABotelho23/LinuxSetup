@@ -209,8 +209,8 @@ apm install language-batchfile
 apm install language-powershell
 apm install dart
 
-#snap installs
-sudo snap install bitwarden
+#snap installs, bad
+#sudo snap install bitwarden #need to find proper deb repo
 
 #gdebi/wget installs
 mkdir deb
