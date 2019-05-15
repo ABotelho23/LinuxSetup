@@ -149,9 +149,6 @@ echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sud
 wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | sudo apt-key add -
 echo 'deb https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/debs/ vscodium main' | sudo tee --a /etc/apt/sources.list.d/vscodium.list
 
-sudo apt-get install apt-transport-https #depends for dart
-#sudo sh -c 'curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list'
-
 #update after repo adds
 sudo apt-get update
 
@@ -194,23 +191,8 @@ Icon=signal-desktop
 StartupWMClass=Signal
 Categories=Network;' > $HOME/.config/autostart/signal-desktop.desktop #enable signal autostart
 
-sudo apt-get install dart -y
-#add dart to PATH
-echo 'export PATH="$PATH":/usr/lib/dart/bin' >> ~/.bashrc
-echo 'export PATH="$PATH":"$HOME/.pub-cache/bin"' >> ~/.bashrc
-pub global activate webdev
-pub global activate stagehand
-sudo apt-get install atom -y
-sudo rm -R ~/.atom
-apm install atom-material-ui
-apm install atom-material-syntax-light
-apm install atom-material-syntax
-apm install language-batchfile
-apm install language-powershell
-apm install dart
-
 #snap installs, bad
-#sudo snap install bitwarden #need to find proper deb repo
+#sudo snap install bitwarden #need to find proper deb repo, look into AppImage?
 
 #gdebi/wget installs
 mkdir deb
@@ -236,6 +218,14 @@ sudo gdebi ./deb/brothercups.deb -n
 #Slack
 wget --show-progress "https://downloads.slack-edge.com/linux_releases/slack-desktop-3.4.0-amd64.deb" -O ./deb/slack.deb
 sudo gdebi ./deb/slack.deb -n
+
+#Flutter SDK
+wget --show-progress "https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.5.4-hotfix.2-stable.tar.xz" -O ./deb/fluttersdk.tar.xz
+tar xf fluttersdk.tar.xz
+sudo cp -R ./flutter /opt
+export PATH="$PATH:/opt/flutter/bin"
+echo 'export PATH="$PATH":/opt/flutter/bin' >> ~/.bashrc
+flutter precache
 
 #check if installs insync
 if [ $INSYNC = "yes" ]; then
