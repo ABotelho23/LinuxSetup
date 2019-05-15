@@ -165,6 +165,7 @@ sudo apt-get install system76-pop-icon-theme -y
 sudo apt-get install powershell -y
 sudo apt-get install gimp -y
 sudo apt-get install vscodium -y
+sudo apt-get install veracrypt -y
 sudo apt-get install plank -y
 sudo apt-get install signal-desktop -y
 
