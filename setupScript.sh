@@ -340,6 +340,9 @@ echo 'source /etc/profile.d/vte.sh' >> $HOME/.bashrc
 echo 'fi' >> $HOME/.bashrc
 ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
 
+#neofetch at terminal start
+echo 'neofetch' >> $HOME/.bashrc
+
 if [[ "$autosign" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
 #ensure openssl is installed
