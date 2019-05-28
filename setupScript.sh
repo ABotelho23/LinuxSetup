@@ -211,7 +211,7 @@ wget --show-progress "https://github.com/chrisknepper/android-messages-desktop/r
 sudo gdebi ./deb/androidmessages.deb -n
 
 #brother drivers from brother.com
-wget --showprogress "https://download.brother.com/welcome/dlf005893/hl2270dwlpr-2.1.0-1.i386.deb" -O ./deb/brotherlpr.deb
+wget --show-progress "https://download.brother.com/welcome/dlf005893/hl2270dwlpr-2.1.0-1.i386.deb" -O ./deb/brotherlpr.deb
 sudo gdebi ./deb/brotherlpr.deb -n
 wget --show-progress "https://download.brother.com/welcome/dlf005895/cupswrapperHL2270DW-2.0.4-2.i386.deb" -O ./deb/brothercups.deb
 sudo gdebi ./deb/brothercups.deb -n
@@ -318,7 +318,7 @@ make
 sudo make install
 cd ..
 
-#Plan themes
+#Plank themes
 git clone git://github.com/erikdubois/plankthemes.git
 sudo cp -r ./plankthemes/* /usr/share/plank/themes
 sudo rm -r /usr/share/plank/themes/setup-git-v1.sh
