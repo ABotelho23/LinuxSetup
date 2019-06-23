@@ -184,7 +184,7 @@ Icon=signal-desktop
 StartupWMClass=Signal
 Categories=Network;' | sudo tee /usr/share/applications/signal-desktop.desktop
 
-mkdir $HOME/.config/autostart
+mkdir $SUDO_USER/.config/autostart
 sudo chown -R $SUDO_USER:$SUDO_USER $SUDO_USER/.config
 touch $SUDO_USER/.config/autostart/signal-desktop.desktop
 echo '[Desktop Entry]
@@ -326,13 +326,13 @@ sudo dpkg-reconfigure wireshark-common
 sudo usermod -a -G wireshark $SUDO_USER
 
 #tilix fix
-echo 'if [[ $TILIX_ID ]]; then' >> $HOME/.bashrc
-echo 'source /etc/profile.d/vte.sh' >> $HOME/.bashrc
-echo 'fi' >> $HOME/.bashrc
+echo 'if [[ $TILIX_ID ]]; then' >> $SUDO_USER/.bashrc
+echo 'source /etc/profile.d/vte.sh' >> $SUDO_USER/.bashrc
+echo 'fi' >> $SUDO_USER/.bashrc
 ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
 
 #neofetch at terminal start
-echo 'neofetch' >> $HOME/.bashrc
+echo 'neofetch' >> $SUDO_USER/.bashrc
 
 if [[ "$autosign" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
