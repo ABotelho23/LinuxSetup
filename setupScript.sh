@@ -184,9 +184,9 @@ Icon=signal-desktop
 StartupWMClass=Signal
 Categories=Network;' | sudo tee /usr/share/applications/signal-desktop.desktop
 
-mkdir $SUDO_USER/.config/autostart
-sudo chown -R $SUDO_USER:$SUDO_USER $SUDO_USER/.config
-touch $SUDO_USER/.config/autostart/signal-desktop.desktop
+mkdir /home/$SUDO_USER/.config/autostart
+sudo chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config
+touch /home/$SUDO_USER/.config/autostart/signal-desktop.desktop
 echo '[Desktop Entry]
 Name=Signal
 Comment=Private messaging from your desktop
@@ -195,7 +195,7 @@ Terminal=false
 Type=Application
 Icon=signal-desktop
 StartupWMClass=Signal
-Categories=Network;' > $SUDO_USER/.config/autostart/signal-desktop.desktop #enable signal autostart
+Categories=Network;' > /home/$SUDO_USER/.config/autostart/signal-desktop.desktop #enable signal autostart
 
 #snap installs, bad
 #sudo snap install bitwarden #need to find proper deb repo, look into AppImage?
@@ -326,13 +326,13 @@ sudo dpkg-reconfigure wireshark-common
 sudo usermod -a -G wireshark $SUDO_USER
 
 #tilix fix
-echo 'if [[ $TILIX_ID ]]; then' >> $SUDO_USER/.bashrc
-echo 'source /etc/profile.d/vte.sh' >> $SUDO_USER/.bashrc
-echo 'fi' >> $SUDO_USER/.bashrc
+echo 'if [[ $TILIX_ID ]]; then' >> /home/$SUDO_USER/.bashrc
+echo 'source /etc/profile.d/vte.sh' >> /home/$SUDO_USER/.bashrc
+echo 'fi' >> /home/$SUDO_USER/.bashrc
 ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
 
 #neofetch at terminal start
-echo 'neofetch' >> $SUDO_USER/.bashrc
+echo 'neofetch' >> /home/$SUDO_USER/.bashrc
 
 if [[ "$autosign" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
