@@ -121,7 +121,7 @@ sudo apt-get install ffmpegthumbnailer -y
 sudo apt-get install easytag -y
 sudo apt-get install brother-* -y
 sudo apt-get install qemu-kvm -y
-sudo usermod -a -G kvm $USER
+sudo usermod -a -G kvm $SUDO_USER
 sudo apt-get install mosh -y
 
 #new ppa/repo adds
@@ -185,7 +185,8 @@ StartupWMClass=Signal
 Categories=Network;' | sudo tee /usr/share/applications/signal-desktop.desktop
 
 mkdir $HOME/.config/autostart
-touch $HOME/.config/autostart/signal-desktop.desktop
+sudo chown -R $SUDO_USER:$SUDO_USER $SUDO_USER/.config
+touch $SUDO_USER/.config/autostart/signal-desktop.desktop
 echo '[Desktop Entry]
 Name=Signal
 Comment=Private messaging from your desktop
@@ -194,7 +195,7 @@ Terminal=false
 Type=Application
 Icon=signal-desktop
 StartupWMClass=Signal
-Categories=Network;' > $HOME/.config/autostart/signal-desktop.desktop #enable signal autostart
+Categories=Network;' > $SUDO_USER/.config/autostart/signal-desktop.desktop #enable signal autostart
 
 #snap installs, bad
 #sudo snap install bitwarden #need to find proper deb repo, look into AppImage?
@@ -253,6 +254,7 @@ if [ $OPENRAZER = "yes" ]; then
 
 	sudo apt install openrazer-meta -y
 	sudo apt install polychromatic -y
+	sudo gpasswd -a $SUDO_USER plugdev
 	sudo gpasswd -a $USER plugdev
 else
 	echo "Openrazer/Polychromatic install not selected. Skipping..."
@@ -321,7 +323,7 @@ sudo cp -r ./Plank-Themes/'Plank Themes'/* /usr/share/plank/themes
 #wireshark install near the end cause graphical
 sudo apt-get install wireshark -y
 sudo dpkg-reconfigure wireshark-common
-sudo usermod -a -G wireshark $USER
+sudo usermod -a -G wireshark $SUDO_USER
 
 #tilix fix
 echo 'if [[ $TILIX_ID ]]; then' >> $HOME/.bashrc
