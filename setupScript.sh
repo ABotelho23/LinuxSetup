@@ -111,6 +111,7 @@ sudo apt-get install git -y
 sudo apt-get install openvpn -y
 sudo apt-get install lame -y
 sudo apt-get install ffmpeg -y
+sudo apt-get install cups -y
 sudo apt-get install adb -y
 sudo apt-get install fastboot -y
 sudo apt-get install exfat-fuse exfat-utils -y
