@@ -421,6 +421,13 @@ fi
 
 fi
 
+#Remove and replace cloud-init
+sudo mv /etc/netplan/50-cloud-init.yaml /etc/netplan/51-netcfg.yaml
+sudo apt-get remove cloud-init -y
+sudo rm /etc/profile.d/Z99-cloudinit-warning.sh
+sudo rm /etc/profile.d/Z99-cloud-locale-test.sh
+sudo rm /etc/profile.d/Z97-byobu.sh
+
 #clean up
 sudo apt autoremove && sudo apt clean
 if [[ "$autosign" =~ ^([yY][eE][sS]|[yY])+$ ]]
