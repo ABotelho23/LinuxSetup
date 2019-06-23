@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "This script will update your system."
 echo "This script will install a large amount of software."
-echo "This script will only remove Dolphin, Konsole, Kate, Gwenview, S and K3b."
+echo "This script will only remove a handful of applications."
 echo "This script assumes you selected minimal install option. This script might break things if your install isn't minimal"
 echo "I recommend running this script from /tmp. That will ensure this script and its downloads get wiped after reboot."
 
@@ -42,15 +42,6 @@ else
 NVIDIA="no"
 fi
 
-read -r -p "Set GTK apps scale to 2.0 for your user? " gtkscaleset
-if [[ "$gtkscaleset" =~ ^([yY][eE][sS]|[yY])+$ ]]
-then
-mkdir -p $HOME/.config/plasma-workspace/env/
-touch $HOME/.config/plasma-workspace/env/gtkScale.sh
-echo 'export GDK_SCALE=2' >> $HOME/.config/plasma-workspace/env/gtkScale.sh
-echo 'export GDK_DPI_SCALE=0.5' >> $HOME/.config/plasma-workspace/env/gtkScale.sh
-fi
-
 #autosign
 read -r -p "Auto-sign DKMS modules that are installed by this script? " autosign
 
@@ -59,20 +50,33 @@ echo "Starting script! Please do not stop this script once it has started."
 #enable 32-bit
 sudo dpkg --add-architecture i386
 
-#important installs first
-sudo apt-get install nemo -y
-sudo apt-get install tilix -y
-
-#removals
-sudo apt-get remove dolphin konsole kate k3b gwenview skanlite -y
-sudo apt autoremove -y #clean up after removals
+#Cinnamon stable PPA
+sudo add-apt-repository ppa:embrosyn/cinnamon -y
 
 #do updates and software upgrades
 sudo apt-get update
 sudo apt-get upgrade -y
 
+#Cinnamon Core
+sudo apt-get install cinnamon-core lightdm slick-greeter blueberry -y
+
+#Remove old greeter config files
+sudo rm /usr/share/lightdm/lightdm.conf.d/50-unity-greeter.conf
+sudo rm /usr/share/lightdm/lightdm.conf.d/50-slick-greeter.conf
+
+#Add new greeter config file
+touch /usr/share/lightdm/lightdm.conf.d/50-slick-greeter.conf
+echo '[SeatDefaults]
+greeter-session=slick-greeter
+user-session=cinnamon' > /usr/share/lightdm/lightdm.conf.d/50-slick-greeter.conf
+
+#removals
+sudo apt-get remove byobu gnome-terminal -y
+sudo apt autoremove -y #clean up after removals
+
 #installs
-sudo apt-get install asunder audacity deluge gnome-disk-utility gparted -y
+sudo apt-get install tilix -y
+sudo apt-get install asunder audacity deluge gnome-disk-utility gnome-system-monitor gparted -y
 sudo apt-get install gdebi -y
 sudo apt-get install inkscape -y
 sudo apt-get install libreoffice -y
@@ -169,7 +173,7 @@ sudo apt-get install veracrypt -y
 sudo apt-get install plank -y
 sudo apt-get install signal-desktop -y
 
-#signal takes some tweaking in KDE
+#signal takes some tweaking
 echo '[Desktop Entry]
 Name=Signal
 Comment=Private messaging from your desktop
@@ -293,22 +297,6 @@ timedatectl set-local-rtc 1
 #fix open in terminal for tilix
 gsettings set org.gnome.desktop.default-applications.terminal exec tilix
 gsettings set org.cinnamon.desktop.default-applications.terminal exec tilix
-
-#KDE Pop theme 1
-git clone git://github.com/Nequo/Pop-plasma-theme.git
-sudo mkdir /usr/share/aurorae
-sudo mkdir /usr/share/aurorae/themes
-sudo cp -R ./Pop-plasma-theme/aurorae/Pop /usr/share/aurorae/themes/
-sudo cp ./Pop-plasma-theme/color-scheme/Pop_Dark.colors /usr/share/color-schemes/
-
-#KDE Pop theme 2
-git clone git://github.com/trgeiger/pop-kde.git
-sudo cp -R ./pop-kde/plasma/desktoptheme/Pop /usr/share/plasma/desktoptheme/
-sudo cp ./pop-kde/color-schemes/Pop.colors /usr/share/color-schemes/
-sudo cp -R ./pop-kde/Kvantum/Pop /usr/share/Kvantum/
-
-#KDE Pop theme 3
-sudo cp Pop_Dark.colors /usr/share/color-schemes/
 
 #pop compiled for Gnome
 sudo apt install libtool pkg-config sassc inkscape optipng parallel libglib2.0-dev libgdk-pixbuf2.0-dev librsvg2-dev libxml2-utils -y
