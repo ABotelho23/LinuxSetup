@@ -50,12 +50,13 @@ echo "Starting script! Please do not stop this script once it has started."
 #enable 32-bit
 sudo dpkg --add-architecture i386
 
-#Cinnamon stable PPA
-sudo add-apt-repository ppa:embrosyn/cinnamon -y
-
 #do updates and software upgrades
 sudo apt-get update
 sudo apt-get upgrade -y
+
+#Cinnamon stable PPA
+sudo add-apt-repository ppa:embrosyn/cinnamon -y
+sudo apt-get update
 
 #Cinnamon Core
 sudo apt-get install cinnamon-core lightdm slick-greeter blueberry -y
