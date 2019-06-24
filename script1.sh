@@ -5,6 +5,7 @@ if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
 
 systemctl disable --now apt-daily{,-upgrade}.{timer,service}
+sudo killall dpkg
 
 #updates
 sudo apt-get update
