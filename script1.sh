@@ -4,6 +4,8 @@ read -r -p "Are you sure you want to run this script? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
 
+systemctl disable --now apt-daily{,-upgrade}.{timer,service}
+
 #updates
 sudo apt-get update
 sudo apt-get upgrade -y
