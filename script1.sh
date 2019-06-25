@@ -16,7 +16,7 @@ sudo add-apt-repository ppa:embrosyn/cinnamon -y
 sudo apt-get update
 
 #Cinnamon core
-sudo apt-get install cinnamon-core mdm slick-greeter blueberry -y
+sudo apt-get install cinnamon-core slick-greeter blueberry -y
 
 #Remove and replace cloud-init
 sudo rm /etc/netplan/50-cloud-init.yaml
@@ -32,8 +32,9 @@ sudo rm /etc/profile.d/Z99-cloud-locale-test.sh
 sudo rm /etc/profile.d/Z97-byobu.sh
 
 #Remove Ubuntu Server stuff
-sudo apt-get remove ubuntu-server modemmanager lxd grub-legacy-ec2 cloud-* landscape-common -y
+sudo apt-get remove ubuntu-server modemmanager lxd grub-legacy-ec2 cloud-* landscape-common networkd-dispatcher -y
 sudo apt remove --purge snapd -y
+sudo systemctl disable pppd-dns.service
 
 echo "Please ensure to run script2.sh upon reboot."
 
