@@ -32,7 +32,7 @@ sudo rm /etc/profile.d/Z99-cloud-locale-test.sh
 sudo rm /etc/profile.d/Z97-byobu.sh
 
 #Remove Ubuntu Server stuff
-sudo apt-get remove ubuntu-server lxd grub-legacy-ec2 cloud-* landscape-common -y
+sudo apt-get remove ubuntu-server modemmanager lxd grub-legacy-ec2 cloud-* landscape-common -y
 sudo apt remove --purge snapd -y
 
 echo "Please ensure to run script2.sh upon reboot."
