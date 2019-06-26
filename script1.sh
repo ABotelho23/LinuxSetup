@@ -16,7 +16,7 @@ sudo add-apt-repository ppa:embrosyn/cinnamon -y
 sudo apt-get update
 
 #Cinnamon core
-sudo apt-get install cinnamon-core slick-greeter blueberry plymouth -y
+sudo apt-get install cinnamon-core slick-greeter lightdm-settings blueberry plymouth -y
 
 #Remove and replace cloud-init
 sudo rm /etc/netplan/*
