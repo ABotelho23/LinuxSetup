@@ -19,7 +19,7 @@ sudo apt-get update
 sudo apt-get install cinnamon-core slick-greeter blueberry -y
 
 #Remove and replace cloud-init
-sudo rm /etc/netplan/50-cloud-init.yaml
+sudo rm /etc/netplan/*
 
 #managed by NetworkManager
 echo 'network:
@@ -32,7 +32,7 @@ sudo rm /etc/profile.d/Z99-cloud-locale-test.sh
 sudo rm /etc/profile.d/Z97-byobu.sh
 
 #Remove Ubuntu Server stuff
-sudo apt-get remove ubuntu-server modemmanager lxd grub-legacy-ec2 cloud-* landscape-common networkd-dispatcher -y
+sudo apt-get remove ubuntu-server modemmanager lxd lxcfs grub-legacy-ec2 cloud-guest-utils cloud-initramfs-* landscape-common ubuntu-advantage-tools unattended-upgrades networkd-dispatcher -y
 sudo apt remove --purge snapd -y
 sudo systemctl disable pppd-dns.service
 
