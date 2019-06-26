@@ -78,6 +78,7 @@ sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y
 sudo apt-add-repository ppa:maarten-fonville/android-studio -y
 sudo add-apt-repository ppa:noobslab/icons -y #for pop icons
 sudo add-apt-repository ppa:otto-kesselgulasch/gimp -y #more recent GIMP versions
+sudo add-apt-repository ppa:tista/plata-theme -y #plata theme
 
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - #google pub key
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' #google chrome repo
@@ -113,6 +114,7 @@ sudo apt-get install gimp -y
 sudo apt-get install vscodium -y
 sudo apt-get install veracrypt -y
 sudo apt-get install signal-desktop -y
+sudo apt-get install plata-theme -y
 
 #signal takes some tweaking
 echo '[Desktop Entry]
@@ -240,20 +242,6 @@ timedatectl set-local-rtc 1
 #fix open in terminal for tilix
 gsettings set org.gnome.desktop.default-applications.terminal exec tilix
 gsettings set org.cinnamon.desktop.default-applications.terminal exec tilix
-
-#theme stuff
-sudo add-apt-repository ppa:tista/plata-theme -y
-sudo apt update
-sudo apt-get install plata-theme -y
-
-#pop compiled for Gnome
-sudo apt-get install libtool pkg-config sassc inkscape optipng parallel libglib2.0-dev libgdk-pixbuf2.0-dev librsvg2-dev libxml2-utils -y
-git clone https://github.com/pop-os/gtk-theme.git
-cd gtk-theme
-make clean
-make
-sudo make install
-cd ..
 
 #Plank themes
 git clone git://github.com/erikdubois/plankthemes.git

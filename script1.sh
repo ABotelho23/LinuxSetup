@@ -16,7 +16,7 @@ sudo add-apt-repository ppa:embrosyn/cinnamon -y
 sudo apt-get update
 
 #Cinnamon core
-sudo apt-get install cinnamon-core slick-greeter blueberry -y
+sudo apt-get install cinnamon-core slick-greeter blueberry plymouth -y
 
 #Remove and replace cloud-init
 sudo rm /etc/netplan/*
@@ -35,6 +35,18 @@ sudo rm /etc/profile.d/Z97-byobu.sh
 sudo apt-get remove ubuntu-server modemmanager lxd lxcfs grub-legacy-ec2 cloud-guest-utils cloud-initramfs-* landscape-common ubuntu-advantage-tools unattended-upgrades networkd-dispatcher -y
 sudo apt remove --purge snapd -y
 sudo systemctl disable pppd-dns.service
+
+echo 'GRUB_DEFAULT=0
+GRUB_TIMEOUT_STYLE=hidden
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+GRUB_CMDLINE_LINUX=""' > /etc/default/grub #enable quiet splash
+sudo update-grub
+
+sudo apt-get install plymouth-themes -y
+sudo update-alternatives --config default.plymouth
+sudo update-initramfs -u
 
 echo "Please ensure to run script2.sh upon reboot."
 
