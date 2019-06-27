@@ -170,7 +170,7 @@ sudo gdebi ./deb/slack.deb -n
 
 #Flutter SDK
 wget --show-progress "https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.5.4-hotfix.2-stable.tar.xz" -O ./deb/fluttersdk.tar.xz
-tar xf fluttersdk.tar.xz
+tar xf ./deb/fluttersdk.tar.xz
 sudo cp -R ./flutter /opt
 export PATH="$PATH:/opt/flutter/bin"
 echo 'export PATH="$PATH":/opt/flutter/bin' >> ~/.bashrc
