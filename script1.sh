@@ -45,10 +45,10 @@ GRUB_CMDLINE_LINUX=""' > /etc/default/grub #enable quiet splash
 sudo update-grub
 
 sudo apt-get install plymouth-themes -y
-wget https://bitbucket.org/gemlion/aurora-penguinis/raw/master/Aurora-Penguinis-Plymouth.tar.xz -O ./penguinis.tar.xz
+wget https://bitbucket.org/gemlion/aurora-penguinis/raw/master/Aurora-Penguinis-Plymouth-2.tar.xz -O ./penguinis.tar.xz
 tar xf ./penguinis.tar.xz
 sudo cp -R ./Aurora-Penguinis-Plymouth /usr/share/plymouth/themes
-sudo mv /usr/share/plymouth/themes/Aurora-Penguinis-Plymouth /usr/share/plymouth/themes/aurora-penguinis
+sudo mv /usr/share/plymouth/themes/Aurora-Penguinis-Plymouth-2 /usr/share/plymouth/themes/aurora-penguinis
 sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/aurora-penguinis/aurora-penguinis.plymouth 100
 sudo update-initramfs -u
 
