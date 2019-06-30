@@ -45,7 +45,8 @@ GRUB_CMDLINE_LINUX=""' > /etc/default/grub #enable quiet splash
 sudo update-grub
 
 sudo apt-get install plymouth-themes -y
-sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/spinfinity/spinfinity.plymouth 100
+sudo cp -R spinfinity-custom /usr/share/plymouth/themes
+sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/spinfinity-custom/spinfinity-custom.plymouth 100
 sudo update-initramfs -u
 
 sudo apt autoremove -y
