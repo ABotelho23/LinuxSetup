@@ -63,7 +63,7 @@ sudo apt-get install gdebi inkscape libreoffice gcc make perl python3 psensor ni
 sudo apt-get install vlc xdiagnose simple-scan nomacs virtualbox thunderbird fonts-roboto-* wine-stable p7zip-full traceroute -y
 sudo apt-get install openjdk-11-jdk openjdk-11-jre network-manager* neofetch plank curl cifs-utils alacarte openvpn lame -y
 sudo apt-get install ffmpeg cups adb fastboot exfat-fuse exfat-utils openssh-server blender avahi-discover ffmpegthumbnailer -y
-sudo apt-get install easytag brother-* mosh -y
+sudo apt-get install easytag brother-* mosh nut system-config-printer -y
 sudo apt-get install qemu-kvm -y
 sudo usermod -a -G kvm $SUDO_USER
 
@@ -75,10 +75,11 @@ sudo add-apt-repository ppa:notepadqq-team/notepadqq -y #notepadqq
 sudo add-apt-repository ppa:unit193/encryption -y #veracrypt
 sudo add-apt-repository ppa:wireguard/wireguard -y #wireguard
 sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y
-sudo apt-add-repository ppa:maarten-fonville/android-studio -y
+sudo apt-add-repository ppa:maarten-fonville/android-studio -y #android studio
 sudo add-apt-repository ppa:noobslab/icons -y #for pop icons
 sudo add-apt-repository ppa:otto-kesselgulasch/gimp -y #more recent GIMP versions
 sudo add-apt-repository ppa:tista/plata-theme -y #plata theme
+sudo add-apt-repository ppa:andreasbutti/xournalpp-master -y #Xournal++
 
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - #google pub key
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' #google chrome repo
@@ -115,6 +116,7 @@ sudo apt-get install vscodium -y
 sudo apt-get install veracrypt -y
 sudo apt-get install signal-desktop -y
 sudo apt-get install plata-theme -y
+sudo apt-get install xournalpp -y
 
 #signal takes some tweaking
 echo '[Desktop Entry]
@@ -140,9 +142,6 @@ Icon=signal-desktop
 StartupWMClass=Signal
 Categories=Network;' > /home/$SUDO_USER/.config/autostart/signal-desktop.desktop #enable signal autostart
 
-#snap installs, bad
-#sudo snap install bitwarden #need to find proper deb repo, look into AppImage?
-
 #gdebi/wget installs
 mkdir deb
 
@@ -167,6 +166,12 @@ sudo gdebi ./deb/brothercups.deb -n
 #Slack
 wget --show-progress "https://downloads.slack-edge.com/linux_releases/slack-desktop-3.4.0-amd64.deb" -O ./deb/slack.deb
 sudo gdebi ./deb/slack.deb -n
+
+#Bitwarden
+wget --show-progress "https://vault.bitwarden.com/download/?app=desktop&platform=linux" -O ./deb/bitwarden.appimage
+chmod +x ./deb/bitwarden.appimage
+sudo mkdir /opt/bitwarden
+sudo ./deb/bitwarden.appimage /opt/bitwarden/bitwarden.appimage
 
 #Flutter SDK
 wget --show-progress "https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.5.4-hotfix.2-stable.tar.xz" -O ./deb/fluttersdk.tar.xz
@@ -226,6 +231,7 @@ fi
 
 #setup Hangouts and Google Keep
 sudo cp -R ./DesktopFiles/* /usr/share/applications
+sudo mv /usr/share/applications/appimagekit-bitwarden.desktop /home/$SUDO_USER/.local/share/applications/appimagekit-bitwarden.desktop
 sudo cp -R ./icons/* /usr/share/icons
 sudo rm /usr/share/applications/android-messages-desktop.desktop
 
