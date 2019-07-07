@@ -171,7 +171,7 @@ sudo gdebi ./deb/slack.deb -n
 wget --show-progress "https://vault.bitwarden.com/download/?app=desktop&platform=linux" -O ./deb/bitwarden.appimage
 chmod +x ./deb/bitwarden.appimage
 sudo mkdir /opt/bitwarden
-sudo ./deb/bitwarden.appimage /opt/bitwarden/bitwarden.appimage
+sudo cp ./deb/bitwarden.appimage /opt/bitwarden/bitwarden.appimage
 
 #Flutter SDK
 wget --show-progress "https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.5.4-hotfix.2-stable.tar.xz" -O ./deb/fluttersdk.tar.xz
