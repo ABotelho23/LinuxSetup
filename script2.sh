@@ -63,7 +63,7 @@ sudo apt-get install gdebi inkscape libreoffice gcc make perl python3 psensor ni
 sudo apt-get install vlc xdiagnose simple-scan nomacs virtualbox thunderbird fonts-roboto-* wine-stable p7zip-full traceroute -y
 sudo apt-get install openjdk-11-jdk openjdk-11-jre network-manager* neofetch plank curl cifs-utils alacarte openvpn lame -y
 sudo apt-get install ffmpeg cups adb fastboot exfat-fuse exfat-utils openssh-server blender avahi-discover ffmpegthumbnailer -y
-sudo apt-get install easytag brother-* mosh nut system-config-printer -y
+sudo apt-get install easytag brother-* mosh nut system-config-printer gnome-calculator gnome-screenshot -y
 sudo apt-get install qemu-kvm -y
 sudo usermod -a -G kvm $SUDO_USER
 
@@ -224,7 +224,7 @@ if [ $CKB = "yes" ]; then
     echo "Nvidia graphics driver install selected. Installing."
     sudo add-apt-repository ppa:graphics-drivers/ppa -y
     sudo apt-get update
-    sudo apt-get install nvidia-driver-430 -y
+    sudo apt-get install nvidia-driver-410 -y
 else
 	echo "Nvidia graphics driver install not selected. Skipping..."
 fi
