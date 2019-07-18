@@ -63,7 +63,7 @@ sudo apt-get install gdebi inkscape libreoffice gcc make perl python3 psensor ni
 sudo apt-get install vlc xdiagnose simple-scan nomacs virtualbox thunderbird fonts-roboto-* wine-stable p7zip-full traceroute -y
 sudo apt-get install openjdk-11-jdk openjdk-11-jre network-manager* neofetch plank curl cifs-utils alacarte openvpn lame -y
 sudo apt-get install ffmpeg cups adb fastboot exfat-fuse exfat-utils openssh-server blender avahi-discover ffmpegthumbnailer -y
-sudo apt-get install easytag brother-* mosh nut system-config-printer gnome-calculator gnome-screenshot -y
+sudo apt-get install easytag brother-* mosh nut system-config-printer gnome-calculator gnome-screenshot hunspell-en-ca fonts-noto-color-emoji -y
 sudo apt-get install qemu-kvm -y
 sudo usermod -a -G kvm $SUDO_USER
 
@@ -261,6 +261,7 @@ git clone git://github.com/LinxGem33/Plank-Themes.git
 sudo cp -r ./Plank-Themes/'Plank Themes'/* /usr/share/plank/themes
 
 #Google cursor theme
+sudo apt-get install x11-apps -y
 git clone git://github.com/KaizIqbal/Google_Cursor.git
 cd Google_Cursor/
 chmod +x build.sh
