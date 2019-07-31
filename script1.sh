@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "This script installs and set up the Cinnamon Desktop Environment as well as MDM and Slick greeter."
+echo "This script installs and set up the Cinnamon Desktop Environment and cleans up Ubuntu Server for Desktop use."
 read -r -p "Are you sure you want to run this script? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
