@@ -95,7 +95,7 @@ echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sud
 
 #VSCodium
 wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg | sudo apt-key add -
-echo 'deb https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/debs/ vscodium main' | sudo tee --a /etc/apt/sources.list.d/vscodium.list
+echo 'deb https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/debs/ vscodium main' | sudo tee -a /etc/apt/sources.list.d/vscodium.list
 
 #update after repo adds
 sudo apt-get update
@@ -112,7 +112,7 @@ sudo apt-get install google-chrome-stable -y
 sudo apt-get install system76-pop-icon-theme -y
 sudo apt-get install powershell -y
 sudo apt-get install gimp -y
-sudo apt-get install vscodium -y
+sudo apt-get install codium -y
 sudo apt-get install veracrypt -y
 sudo apt-get install signal-desktop -y
 sudo apt-get install plata-theme -y
