@@ -33,6 +33,14 @@ else
 CKB="no"
 fi
 
+read -r -p "Install up-to-date open-source AMD graphics driver? [y/N] " response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
+then
+AMD="yes"
+else
+AMD="no"
+fi
+
 read -r -p "Install Nvidia graphics driver? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
@@ -220,7 +228,16 @@ else
 	echo "CKB-next install not selected. Continuing..."
 fi
 
-if [ $CKB = "yes" ]; then
+if [ $AMD = "yes" ]; then
+    echo "AMD graphics driver install selected. Installing."
+    sudo add-apt-repository ppa:oibaf/graphics-drivers -y
+    sudo apt-get update
+    sudo apt-get upgrade -y
+else
+	echo "AMD graphics driver install not selected. Skipping..."
+fi
+
+if [ $NVIDIA = "yes" ]; then
     echo "Nvidia graphics driver install selected. Installing."
     sudo add-apt-repository ppa:graphics-drivers/ppa -y
     sudo apt-get update
@@ -308,6 +325,10 @@ sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv 
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razercore)
 fi
 
+if [ $AMD = "yes" ]; then
+sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n amdgpu)
+fi
+
 if [ $NVIDIA = "yes" ]; then
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n nvidia)
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n nvidia-modeset)
@@ -329,6 +350,10 @@ tail $(modinfo -n razermousemat) | grep "Module signature appended"
 tail $(modinfo -n razerkraken) | grep "Module signature appended"
 tail $(modinfo -n razermug) | grep "Module signature appended"
 tail $(modinfo -n razercore) | grep "Module signature appended"
+fi
+
+if [ $AMD = "yes" ]; then
+tail $(modinfo -n amdgpu) | grep "Module signature appended"
 fi
 
 if [ $NVIDIA = "yes" ]; then
@@ -363,6 +388,10 @@ sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/wireguard.conf
 
 if [ $OPENRAZER = "yes" ]; then
 sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/openrazer-driver.conf
+fi
+
+if [ $AMD = "yes" ]; then
+sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/amdgpu.conf
 fi
 
 if [ $NVIDIA = "yes" ]; then
