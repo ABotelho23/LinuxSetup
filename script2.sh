@@ -162,7 +162,7 @@ wget --show-progress "https://discordapp.com/api/download?platform=linux&format=
 sudo gdebi ./deb/discord.deb -n
 
 #android messages
-wget --show-progress "https://github.com/chrisknepper/android-messages-desktop/releases/download/v1.0.1/android-messages-desktop_1.0.1_amd64.deb" -O ./deb/androidmessages.deb
+wget --show-progress "https://github.com/chrisknepper/android-messages-desktop/releases/download/v2.0.0/android-messages-desktop_2.0.0_amd64.deb" -O ./deb/androidmessages.deb
 sudo gdebi ./deb/androidmessages.deb -n
 
 #brother drivers from brother.com
@@ -182,7 +182,7 @@ sudo mkdir /opt/bitwarden
 sudo cp ./deb/bitwarden.appimage /opt/bitwarden/bitwarden.appimage
 
 #Flutter SDK
-wget --show-progress "https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.5.4-hotfix.2-stable.tar.xz" -O ./deb/fluttersdk.tar.xz
+wget --show-progress "https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.7.8+hotfix.4-stable.tar.xz" -O ./deb/fluttersdk.tar.xz
 tar xf ./deb/fluttersdk.tar.xz
 sudo cp -R ./flutter /opt
 export PATH="$PATH:/opt/flutter/bin"
@@ -192,7 +192,7 @@ flutter precache
 #check if installs insync
 if [ $INSYNC = "yes" ]; then
     echo "Insync install selected. Installing."
-    wget --show-progress "https://d2t3ff60b2tol4.cloudfront.net/builds/insync_1.5.7.37371-artful_amd64.deb" -O ./deb/insync.deb
+    wget --show-progress "https://d2t3ff60b2tol4.cloudfront.net/builds/insync_3.0.15.40277-bionic_amd64.deb" -O ./deb/insync.deb
     sudo gdebi ./deb/insync.deb -n
     sudo apt-get update
     sudo apt-get install insync-nemo -y
