@@ -7,4 +7,4 @@ Type=Application
 Name=Android Messages
 Exec=/opt/'Android Messages'/android-messages-desktop
 Icon=/usr/share/icons/AndroidMessages.png
-Name[en_CA]=AndroidMessages
+Name[en_CA]=Android Messages
