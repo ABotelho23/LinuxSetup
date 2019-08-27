@@ -263,7 +263,8 @@ sudo cp -R ./RobotoMono/* /usr/share/fonts/robotomono
 timedatectl set-local-rtc 1
 
 #fix open in terminal for tilix
-gsettings set org.gnome.desktop.default-applications.terminal exec tilix
+nemo &
+tilix &
 gsettings set org.cinnamon.desktop.default-applications.terminal exec tilix
 
 #Plank themes
@@ -272,6 +273,11 @@ sudo cp -r ./plankthemes/* /usr/share/plank/themes
 sudo rm -r /usr/share/plank/themes/setup-git-v1.sh
 sudo rm -r /usr/share/plank/themes/git-v1.sh
 sudo rm -r /usr/share/plank/themes/README.md
+
+#Paper cursor theme
+sudo add-apt-repository -u ppa:snwh/ppa -y
+sudo apt-get update
+sudo apt-get install paper-icon-theme -y
 
 #Google cursor theme
 #sudo apt-get install x11-apps -y
