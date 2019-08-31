@@ -310,6 +310,8 @@ autologin-guest=false
 autologin-user=$SUDO_USER
 autologin-user-timeout=0" | sudo tee /etc/lightdm/lightdm.conf
 else
+	"Autologin selection skipped."
+fi
 
 #wireshark install near the end cause graphical
 sudo apt-get install wireshark -y
