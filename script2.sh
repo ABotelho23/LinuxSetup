@@ -233,7 +233,7 @@ if [ $AMD = "yes" ]; then
     sudo add-apt-repository ppa:oibaf/graphics-drivers -y
     sudo apt-get update
     sudo apt-get upgrade --with-new-pkgs -y
-    wget --show-progress "https://drivers.amd.com/drivers/linux/amdgpu-pro-19.30-855429-ubuntu-18.04.tar.xz" -O ./amddriver.tar.xz
+    wget --referer=http://support.amd.com --show-progress "https://drivers.amd.com/drivers/linux/amdgpu-pro-19.30-855429-ubuntu-18.04.tar.xz" -O ./amddriver.tar.xz
     tar -Jxvf amddriver.tar.xz
     cd amdgpu*/
     sudo ./amdgpu-install
