@@ -81,7 +81,7 @@ sudo apt-get install vlc xdiagnose simple-scan nomacs virtualbox thunderbird fon
 sudo apt-get install openjdk-11-jdk openjdk-11-jre network-manager* neofetch plank curl cifs-utils alacarte openvpn lame -y
 sudo apt-get install ffmpeg cups adb fastboot exfat-fuse exfat-utils openssh-server blender avahi-discover ffmpegthumbnailer -y
 sudo apt-get install easytag brother-* mosh nut system-config-printer gnome-calculator gnome-screenshot hunspell-en-ca fonts-noto-color-emoji -y
-sudo apt-get install qemu-kvm -y
+sudo apt-get install seahorse qemu-kvm -y
 sudo usermod -a -G kvm $SUDO_USER
 
 #new ppa/repo adds
