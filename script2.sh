@@ -52,6 +52,15 @@ fi
 #autosign
 read -r -p "Auto-sign DKMS modules that are installed by this script? " autosign
 
+
+read -r -p "Autologin your user? Great for Encrypted LVM Setups. [y/N] " response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
+then
+AUTOLOGIN="yes"
+else
+AUTOLOGIN="no"
+fi
+
 echo "Starting script! Please do not stop this script once it has started."
 
 #enable 32-bit
@@ -293,6 +302,14 @@ sudo apt-get install paper-icon-theme -y
 #chmod +x ./Installer_Google.sh
 #sudo ./Installer_Google.sh
 #cd ..
+
+
+if [ $AUTOLOGIN = "yes" ]; then
+echo "[Seat:*]
+autologin-guest=false
+autologin-user=$SUDO_USER
+autologin-user-timeout=0" | sudo tee /etc/lightdm/lightdm.conf
+else
 
 #wireshark install near the end cause graphical
 sudo apt-get install wireshark -y
