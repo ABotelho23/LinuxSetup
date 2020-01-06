@@ -201,7 +201,7 @@ flutter precache
 #check if installs insync
 if [ $INSYNC = "yes" ]; then
     echo "Insync install selected. Installing."
-    wget --show-progress "https://d2t3ff60b2tol4.cloudfront.net/builds/insync_3.0.15.40277-bionic_amd64.deb" -O ./deb/insync.deb
+    wget --show-progress "https://d2t3ff60b2tol4.cloudfront.net/builds/insync_3.0.27.40677-bionic_amd64.deb" -O ./deb/insync.deb
     sudo gdebi ./deb/insync.deb -n
     sudo apt-get update
     sudo apt-get install insync-nemo -y
