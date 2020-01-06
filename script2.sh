@@ -181,7 +181,7 @@ wget --show-progress "https://download.brother.com/welcome/dlf005895/cupswrapper
 sudo gdebi ./deb/brothercups.deb -n
 
 #Slack
-wget --show-progress "https://downloads.slack-edge.com/linux_releases/slack-desktop-3.4.0-amd64.deb" -O ./deb/slack.deb
+wget --show-progress "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.2.0-amd64.deb" -O ./deb/slack.deb
 sudo gdebi ./deb/slack.deb -n
 
 #Bitwarden
@@ -191,7 +191,7 @@ sudo mkdir /opt/bitwarden
 sudo cp ./deb/bitwarden.appimage /opt/bitwarden/bitwarden.appimage
 
 #Flutter SDK
-wget --show-progress "https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.7.8+hotfix.4-stable.tar.xz" -O ./deb/fluttersdk.tar.xz
+wget --show-progress "https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.12.13+hotfix.5-stable.tar.xz" -O ./deb/fluttersdk.tar.xz
 tar xf ./deb/fluttersdk.tar.xz
 sudo cp -R ./flutter /opt
 export PATH="$PATH:/opt/flutter/bin"
@@ -292,17 +292,6 @@ sudo rm -r /usr/share/plank/themes/README.md
 sudo add-apt-repository -u ppa:snwh/ppa -y
 sudo apt-get update
 sudo apt-get install paper-icon-theme -y
-
-#Google cursor theme
-#sudo apt-get install x11-apps -y
-#git clone git://github.com/KaizIqbal/Google_Cursor.git
-#cd Google_Cursor/
-#chmod +x build.sh
-#./build.sh
-#chmod +x ./Installer_Google.sh
-#sudo ./Installer_Google.sh
-#cd ..
-
 
 if [ $AUTOLOGIN = "yes" ]; then
 echo "[Seat:*]
