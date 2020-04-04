@@ -44,15 +44,6 @@ fi
 #autosign
 read -r -p "Auto-sign DKMS modules that are installed by this script? " autosign
 
-
-read -r -p "Autologin your user? Great for Encrypted LVM Setups. [y/N] " response
-if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
-then
-AUTOLOGIN="yes"
-else
-AUTOLOGIN="no"
-fi
-
 echo "Starting script! Please do not stop this script once it has started."
 
 #enable 32-bit
@@ -68,27 +59,26 @@ sudo apt autoremove -y #clean up after removals
 
 #installs
 sudo apt-get install tilix asunder audacity deluge gnome-disk-utility gnome-system-monitor gparted net-tools putty redshift -y
-sudo apt-get install gdebi inkscape libreoffice gcc make perl python3 psensor nitrogen okular -y
-sudo apt-get install vlc xdiagnose simple-scan nomacs virtualbox thunderbird fonts-roboto-* wine-stable p7zip-full traceroute -y
-sudo apt-get install openjdk-11-jdk openjdk-11-jre network-manager* neofetch plank curl cifs-utils alacarte openvpn lame -y
-sudo apt-get install ffmpeg cups adb fastboot exfat-fuse exfat-utils openssh-server blender avahi-discover ffmpegthumbnailer -y
-sudo apt-get install easytag brother-* mosh nut system-config-printer gnome-calculator gnome-screenshot hunspell-en-ca fonts-noto-color-emoji -y
+sudo apt-get install gdebi inkscape libreoffice gcc make perl python3 psensor nitrogen okular wireguard -y
+sudo apt-get install vlc nomacs virtualbox thunderbird fonts-roboto-* wine-stable p7zip-full traceroute -y
+sudo apt-get install openjdk-11-jdk openjdk-11-jre network-manager* neofetch curl cifs-utils alacarte lame -y
+sudo apt-get install ffmpeg cups adb fastboot exfat-utils exfat-fuse openssh-server blender avahi-discover ffmpegthumbnailer -y
+sudo apt-get install easytag mosh nut system-config-printer gnome-calculator gnome-screenshot hunspell-en-ca fonts-noto-color-emoji -y
 sudo apt-get install seahorse qemu-kvm -y
 sudo usermod -a -G kvm $SUDO_USER
 
 #new ppa/repo adds
-sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut
+#sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut NOT WORKING
 sudo add-apt-repository ppa:gezakovacs/ppa -y #unetbootin
 sudo add-apt-repository ppa:nilarimogard/webupd8 -y #woeusb
-sudo add-apt-repository ppa:notepadqq-team/notepadqq -y #notepadqq
+#sudo add-apt-repository ppa:notepadqq-team/notepadqq -y #notepadqq NOT WORKING
 sudo add-apt-repository ppa:unit193/encryption -y #veracrypt
-sudo add-apt-repository ppa:wireguard/wireguard -y #wireguard
-sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y
+#sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y NOT WORKING
 sudo apt-add-repository ppa:maarten-fonville/android-studio -y #android studio
-sudo add-apt-repository ppa:noobslab/icons -y #for pop icons
+sudo add-apt-repository ppa:papirus/papirus -y #papirus icons
 sudo add-apt-repository ppa:otto-kesselgulasch/gimp -y #more recent GIMP versions
 sudo add-apt-repository ppa:tista/plata-theme -y #plata theme
-sudo add-apt-repository ppa:andreasbutti/xournalpp-master -y #Xournal++
+sudo add-apt-repository ppa:andreasbutti/xournalpp-master -y #Xournal++n
 
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - #google pub key
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' #google chrome repo
@@ -110,15 +100,14 @@ echo 'deb https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/debs/ v
 sudo apt-get update
 
 #new ppa/repo installs
-sudo apt-get install shotcut -y
+#sudo apt-get install shotcut -y NOT WORKING
 sudo apt-get install unetbootin -y
 sudo apt-get install woeusb -y
-sudo apt-get install notepadqq -y
-sudo apt-get install wireguard -y
-sudo apt-get install grub-customizer -y
+#sudo apt-get install notepadqq -y NOT WORKING
+#sudo apt-get install grub-customizer -y NOT WORKING
 sudo apt-get install android-studio -y
 sudo apt-get install google-chrome-stable -y
-sudo apt-get install system76-pop-icon-theme -y
+sudo apt-get install papirus-icon-theme
 sudo apt-get install powershell -y
 sudo apt-get install gimp -y
 sudo apt-get install codium -y
@@ -144,7 +133,7 @@ touch /home/$SUDO_USER/.config/autostart/signal-desktop.desktop
 echo '[Desktop Entry]
 Name=Signal
 Comment=Private messaging from your desktop
-Exec=env XDG_CURRENT_DESKTOP=Unity signal-desktop %U --start-in-tray
+#Exec=env XDG_CURRENT_DESKTOP=Unity signal-desktop %U --start-in-tray
 Terminal=false
 Type=Application
 Icon=signal-desktop
@@ -154,27 +143,13 @@ Categories=Network;' > /home/$SUDO_USER/.config/autostart/signal-desktop.desktop
 #gdebi/wget installs
 mkdir deb
 
-#skype
-wget --show-progress "https://go.skype.com/skypeforlinux-64.deb" -O ./deb/skype.deb
-sudo gdebi ./deb/skype.deb -n
-
 #discord
 wget --show-progress "https://discordapp.com/api/download?platform=linux&format=deb" -O ./deb/discord.deb
 sudo gdebi ./deb/discord.deb -n
 
 #android messages
-wget --show-progress "https://github.com/chrisknepper/android-messages-desktop/releases/download/v2.0.0/android-messages-desktop_2.0.0_amd64.deb" -O ./deb/androidmessages.deb
+wget --show-progress "https://github.com/chrisknepper/android-messages-desktop/releases/download/v3.1.0/android-messages-desktop_3.1.0_amd64.deb" -O ./deb/androidmessages.deb
 sudo gdebi ./deb/androidmessages.deb -n
-
-#brother drivers from brother.com
-wget --show-progress "https://download.brother.com/welcome/dlf005893/hl2270dwlpr-2.1.0-1.i386.deb" -O ./deb/brotherlpr.deb
-sudo gdebi ./deb/brotherlpr.deb -n
-wget --show-progress "https://download.brother.com/welcome/dlf005895/cupswrapperHL2270DW-2.0.4-2.i386.deb" -O ./deb/brothercups.deb
-sudo gdebi ./deb/brothercups.deb -n
-
-#Slack
-wget --show-progress "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.2.0-amd64.deb" -O ./deb/slack.deb
-sudo gdebi ./deb/slack.deb -n
 
 #Bitwarden
 wget --show-progress "https://vault.bitwarden.com/download/?app=desktop&platform=linux" -O ./deb/bitwarden.appimage
@@ -233,7 +208,7 @@ if [ $NVIDIA = "yes" ]; then
     echo "Nvidia graphics driver install selected. Installing."
     sudo add-apt-repository ppa:graphics-drivers/ppa -y
     sudo apt-get update
-    sudo apt-get install nvidia-driver-410 -y
+    sudo apt nvidia-graphics-drivers-440 -y
 else
 	echo "Nvidia graphics driver install not selected. Skipping..."
 fi
@@ -248,37 +223,12 @@ sudo rm /usr/share/applications/android-messages-desktop.desktop
 sudo mkdir /usr/share/fonts/robotomono
 sudo cp -R ./RobotoMono/* /usr/share/fonts/robotomono
 
-#fix shitty libinput by replacing it...
-#sudo apt-get install xserver-xorg-input-synaptics -y
-
 #fix time
 timedatectl set-local-rtc 1
 
 #fix open in terminal for tilix
-nemo &
 tilix &
-gsettings set org.cinnamon.desktop.default-applications.terminal exec tilix
-
-#Plank themes
-git clone git://github.com/erikdubois/plankthemes.git
-sudo cp -r ./plankthemes/* /usr/share/plank/themes
-sudo rm -r /usr/share/plank/themes/setup-git-v1.sh
-sudo rm -r /usr/share/plank/themes/git-v1.sh
-sudo rm -r /usr/share/plank/themes/README.md
-
-#Paper cursor theme
-sudo add-apt-repository -u ppa:snwh/ppa -y
-sudo apt-get update
-sudo apt-get install paper-icon-theme -y
-
-if [ $AUTOLOGIN = "yes" ]; then
-echo "[Seat:*]
-autologin-guest=false
-autologin-user=$SUDO_USER
-autologin-user-timeout=0" | sudo tee /etc/lightdm/lightdm.conf
-else
-	"Autologin selection skipped."
-fi
+gsettings set org.gnome.desktop.default-applications.terminal exec tilix
 
 #wireshark install near the end cause graphical
 sudo apt-get install wireshark -y
@@ -286,6 +236,7 @@ sudo dpkg-reconfigure wireshark-common
 sudo usermod -a -G wireshark $SUDO_USER
 
 #tilix fix
+
 echo 'if [[ $TILIX_ID ]]; then' >> /home/$SUDO_USER/.bashrc
 echo 'source /etc/profile.d/vte.sh' >> /home/$SUDO_USER/.bashrc
 echo 'fi' >> /home/$SUDO_USER/.bashrc
@@ -307,7 +258,6 @@ sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv 
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n vboxnetadp)
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n vboxnetflt)
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n vboxpci)
-sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n wireguard)
 
 if [ $OPENRAZER = "yes" ]; then
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razerkbd)
@@ -330,7 +280,6 @@ tail $(modinfo -n vboxdrv) | grep "Module signature appended"
 tail $(modinfo -n vboxnetadp) | grep "Module signature appended"
 tail $(modinfo -n vboxnetflt) | grep "Module signature appended"
 tail $(modinfo -n vboxpci) | grep "Module signature appended"
-tail $(modinfo -n wireguard) | grep "Module signature appended"
 
 if [ $OPENRAZER = "yes" ]; then
 tail $(modinfo -n razerkbd) | grep "Module signature appended"
@@ -369,7 +318,6 @@ done' | sudo tee -a /root/sign-kernel.sh
 sudo chmod +x /root/sign-kernel.sh
 
 sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/virtualbox.conf
-sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/wireguard.conf
 
 if [ $OPENRAZER = "yes" ]; then
 sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/openrazer-driver.conf
