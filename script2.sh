@@ -68,7 +68,6 @@ sudo apt-get install seahorse qemu-kvm -y
 sudo usermod -a -G kvm $SUDO_USER
 
 #new ppa/repo adds
-#sudo add-apt-repository ppa:haraldhv/shotcut -y #shotcut NOT WORKING
 sudo add-apt-repository ppa:gezakovacs/ppa -y #unetbootin
 sudo add-apt-repository ppa:nilarimogard/webupd8 -y #woeusb
 #sudo add-apt-repository ppa:notepadqq-team/notepadqq -y #notepadqq NOT WORKING
@@ -100,7 +99,6 @@ echo 'deb https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/debs/ v
 sudo apt-get update
 
 #new ppa/repo installs
-#sudo apt-get install shotcut -y NOT WORKING
 sudo apt-get install unetbootin -y
 sudo apt-get install woeusb -y
 #sudo apt-get install notepadqq -y NOT WORKING
