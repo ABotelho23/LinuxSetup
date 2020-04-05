@@ -64,23 +64,21 @@ sudo apt-get install vlc nomacs virtualbox thunderbird ^fonts-roboto- wine-stabl
 sudo apt-get install openjdk-11-jdk openjdk-11-jre ^network-manager neofetch curl cifs-utils alacarte lame -y
 sudo apt-get install ffmpeg cups adb fastboot exfat-utils exfat-fuse openssh-server blender avahi-discover ffmpegthumbnailer -y
 sudo apt-get install easytag mosh nut system-config-printer gnome-calculator gnome-screenshot hunspell-en-ca fonts-noto-color-emoji -y
-sudo apt-get install seahorse qemu-kvm -y
+sudo apt-get install seahorse qemu-kvm apt-transport-https -y
 sudo usermod -a -G kvm $SUDO_USER
 
 #new ppa/repo adds
 sudo add-apt-repository ppa:gezakovacs/ppa -y #unetbootin
 sudo add-apt-repository ppa:nilarimogard/webupd8 -y #woeusb
-#sudo add-apt-repository ppa:notepadqq-team/notepadqq -y #notepadqq NOT WORKING
 sudo add-apt-repository ppa:unit193/encryption -y #veracrypt
-#sudo add-apt-repository ppa:danielrichter2007/grub-customizer -y NOT WORKING
 sudo apt-add-repository ppa:maarten-fonville/android-studio -y #android studio
 sudo add-apt-repository ppa:papirus/papirus -y #papirus icons
 sudo add-apt-repository ppa:otto-kesselgulasch/gimp -y #more recent GIMP versions
 sudo add-apt-repository ppa:tista/plata-theme -y #plata theme
 sudo add-apt-repository ppa:andreasbutti/xournalpp-master -y #Xournal++n
 
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - #google pub key
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' #google chrome repo
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - #sublime pub key
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 
 # Download the Microsoft repository GPG keys
 wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
@@ -101,10 +99,7 @@ sudo apt-get update
 #new ppa/repo installs
 sudo apt-get install unetbootin -y
 sudo apt-get install woeusb -y
-#sudo apt-get install notepadqq -y NOT WORKING
-#sudo apt-get install grub-customizer -y NOT WORKING
 sudo apt-get install android-studio -y
-sudo apt-get install google-chrome-stable -y
 sudo apt-get install papirus-icon-theme
 sudo apt-get install powershell -y
 sudo apt-get install gimp -y
@@ -113,6 +108,7 @@ sudo apt-get install veracrypt -y
 sudo apt-get install signal-desktop -y
 sudo apt-get install plata-theme -y
 sudo apt-get install xournalpp -y
+sudo apt-get install sublime-text -y
 
 #signal takes some tweaking
 echo '[Desktop Entry]
