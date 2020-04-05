@@ -123,16 +123,7 @@ sudo apt-get install sublime-text -y
 
 mkdir /home/$SUDO_USER/.config/autostart
 sudo chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config
-touch /home/$SUDO_USER/.config/autostart/signal-desktop.desktop
-echo '[Desktop Entry]
-Name=Signal
-Comment=Private messaging from your desktop
-#Exec=env XDG_CURRENT_DESKTOP=Unity signal-desktop %U --start-in-tray
-Terminal=false
-Type=Application
-Icon=signal-desktop
-StartupWMClass=Signal
-Categories=Network;' > /home/$SUDO_USER/.config/autostart/signal-desktop.desktop #enable signal autostart
+cp /usr/share/applications/signal-desktop.desktop /home/$SUDO_USER/.config/autostart/signal-desktop.desktop #enable signal autostart
 
 #gdebi/wget installs
 mkdir deb
