@@ -60,8 +60,8 @@ sudo apt autoremove -y #clean up after removals
 #installs
 sudo apt-get install tilix asunder audacity deluge gnome-disk-utility gnome-system-monitor gparted net-tools putty redshift -y
 sudo apt-get install gdebi inkscape libreoffice gcc make perl python3 psensor nitrogen okular wireguard -y
-sudo apt-get install vlc nomacs virtualbox thunderbird fonts-roboto-* wine-stable p7zip-full traceroute -y
-sudo apt-get install openjdk-11-jdk openjdk-11-jre network-manager* neofetch curl cifs-utils alacarte lame -y
+sudo apt-get install vlc nomacs virtualbox thunderbird ^fonts-roboto- wine-stable p7zip-full traceroute -y
+sudo apt-get install openjdk-11-jdk openjdk-11-jre ^network-manager neofetch curl cifs-utils alacarte lame -y
 sudo apt-get install ffmpeg cups adb fastboot exfat-utils exfat-fuse openssh-server blender avahi-discover ffmpegthumbnailer -y
 sudo apt-get install easytag mosh nut system-config-printer gnome-calculator gnome-screenshot hunspell-en-ca fonts-noto-color-emoji -y
 sudo apt-get install seahorse qemu-kvm -y
