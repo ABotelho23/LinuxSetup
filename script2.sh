@@ -209,6 +209,7 @@ timedatectl set-local-rtc 1
 
 #fix open in terminal for tilix
 tilix &
+killall tilix
 gsettings set org.gnome.desktop.default-applications.terminal exec tilix
 
 #wireshark install near the end cause graphical
