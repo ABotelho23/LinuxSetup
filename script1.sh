@@ -20,7 +20,7 @@ sudo systemctl disable pppd-dns.service
 
 # Re-add Gnome store, remove snap plugin
 sudo apt install gnome-software -y
-sudo apt remove gnome-software-plugin-snap
+sudo apt remove gnome-software-plugin-snap -y
 
 #cleanup packages
 sudo apt autoremove -y
