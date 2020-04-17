@@ -64,7 +64,7 @@ sudo apt-get install vlc nomacs virtualbox thunderbird ^fonts-roboto- wine-stabl
 sudo apt-get install openjdk-11-jdk openjdk-11-jre ^network-manager neofetch curl cifs-utils alacarte lame -y
 sudo apt-get install ffmpeg cups adb fastboot exfat-utils exfat-fuse openssh-server blender avahi-discover ffmpegthumbnailer -y
 sudo apt-get install easytag mosh nut system-config-printer gnome-calculator gnome-screenshot hunspell-en-ca fonts-noto-color-emoji -y
-sudo apt-get install seahorse qemu-kvm apt-transport-https -y
+sudo apt-get install seahorse qemu-kvm apt-transport-https grub-customizer -y
 sudo usermod -a -G kvm $SUDO_USER
 
 #new ppa/repo adds
