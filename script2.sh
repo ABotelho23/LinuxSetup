@@ -76,6 +76,7 @@ sudo add-apt-repository ppa:papirus/papirus -y #papirus icons
 sudo add-apt-repository ppa:otto-kesselgulasch/gimp -y #more recent GIMP versions
 sudo add-apt-repository ppa:tista/plata-theme -y #plata theme
 sudo add-apt-repository ppa:andreasbutti/xournalpp-master -y #Xournal++n
+sudo add-apt-repository ppa:appimagelauncher-team/stable -y #AppImageLauncher
 
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - #sublime pub key
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
@@ -109,6 +110,7 @@ sudo apt-get install signal-desktop -y
 sudo apt-get install plata-theme -y
 sudo apt-get install xournalpp -y
 sudo apt-get install sublime-text -y
+sudo apt-get install appimagelauncher -y
 
 #signal takes some tweaking
 #echo '[Desktop Entry]
@@ -120,6 +122,16 @@ sudo apt-get install sublime-text -y
 #Icon=signal-desktop
 #StartupWMClass=Signal
 #Categories=Network;' | sudo tee /usr/share/applications/signal-desktop.desktop
+
+#Install Gnome extensions
+wget https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v40.shell-extension.zip
+unzip user-themegnome-shell-extensions.gcampax.github.com.v40.shell-extension.zip /usr/share/gnome-shell/extensions/user-themes
+
+wget https://extensions.gnome.org/extension-data/gsconnectandyholmes.github.io.v37.shell-extension.zip
+unzip gsconnectandyholmes.github.io.v37.shell-extension.zip /usr/share/gnome-shell/extensions/gsconnect
+
+wget https://extensions.gnome.org/extension-data/openweather-extensionjenslody.de.v102.shell-extension.zip
+unzip openweather-extensionjenslody.de.v102.shell-extension.zip /usr/share/gnome-shell/extensions/openweather
 
 mkdir /home/$SUDO_USER/.config/autostart
 sudo chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config
@@ -139,8 +151,7 @@ sudo gdebi ./deb/androidmessages.deb -n
 #Bitwarden
 wget --show-progress "https://vault.bitwarden.com/download/?app=desktop&platform=linux" -O ./deb/bitwarden.appimage
 chmod +x ./deb/bitwarden.appimage
-sudo mkdir /opt/bitwarden
-sudo cp ./deb/bitwarden.appimage /opt/bitwarden/bitwarden.appimage
+sudo ail-cli integrate bitwarden.appimage
 
 #Flutter SDK
 wget --show-progress "https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.12.13+hotfix.5-stable.tar.xz" -O ./deb/fluttersdk.tar.xz
