@@ -124,14 +124,20 @@ sudo apt-get install appimagelauncher -y
 #Categories=Network;' | sudo tee /usr/share/applications/signal-desktop.desktop
 
 #Install Gnome extensions
-wget https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v40.shell-extension.zip
-unzip user-themegnome-shell-extensions.gcampax.github.com.v40.shell-extension.zip /usr/share/gnome-shell/extensions/user-themes
+sudo su
+wget https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v40.shell-extension.zip 
+gnome-extensions install user-themegnome-shell-extensions.gcampax.github.com.v40.shell-extension.zip
+gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
 
 wget https://extensions.gnome.org/extension-data/gsconnectandyholmes.github.io.v37.shell-extension.zip
-unzip gsconnectandyholmes.github.io.v37.shell-extension.zip /usr/share/gnome-shell/extensions/gsconnect
+gnome-extensions install gsconnectandyholmes.github.io.v37.shell-extension.zip
+gnome-extensions enable gsconnect@andyholmes.github.io
 
 wget https://extensions.gnome.org/extension-data/openweather-extensionjenslody.de.v102.shell-extension.zip
-unzip openweather-extensionjenslody.de.v102.shell-extension.zip /usr/share/gnome-shell/extensions/openweather
+gnome-extensions install openweather-extensionjenslody.de.v102.shell-extension.zip
+gnome-extensions enable openweather-extension@jenslody.de
+
+exit
 
 mkdir /home/$SUDO_USER/.config/autostart
 sudo chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config
