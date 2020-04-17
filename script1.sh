@@ -25,6 +25,10 @@ sudo apt remove gnome-software-plugin-snap
 #cleanup packages
 sudo apt autoremove -y
 
+#Remove Ubuntu dock
+sudo rm -R /usr/share/gnome-shell/extensions/desktop-icons@csoriano
+sudo rm -R /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com
+
 echo "Please ensure to run script2.sh upon reboot."
 
 #prompt
