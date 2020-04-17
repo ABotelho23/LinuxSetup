@@ -54,17 +54,18 @@ sudo apt-get update
 sudo apt-get upgrade -y
 
 #removals
+sudo apt-get install tilix -y
 sudo apt-get remove byobu gnome-terminal -y
 sudo apt autoremove -y #clean up after removals
 
 #installs
 sudo apt-get install tilix asunder audacity deluge gnome-disk-utility gnome-system-monitor gparted net-tools putty redshift -y
-sudo apt-get install gdebi inkscape libreoffice gcc make perl python3 psensor nitrogen okular wireguard -y
+sudo apt-get install gdebi inkscape libreoffice gcc make perl python3 psensor okular wireguard -y
 sudo apt-get install vlc nomacs virtualbox thunderbird ^fonts-roboto- wine-stable p7zip-full traceroute -y
-sudo apt-get install openjdk-11-jdk openjdk-11-jre ^network-manager neofetch curl cifs-utils alacarte lame -y
+sudo apt-get install openjdk-11-jdk openjdk-11-jre ^network-manager neofetch curl cifs-utils lame -y
 sudo apt-get install ffmpeg cups adb fastboot exfat-utils exfat-fuse openssh-server blender avahi-discover ffmpegthumbnailer -y
 sudo apt-get install easytag mosh nut system-config-printer gnome-calculator gnome-screenshot hunspell-en-ca fonts-noto-color-emoji -y
-sudo apt-get install seahorse qemu-kvm apt-transport-https grub-customizer pulseeffects -y
+sudo apt-get install seahorse qemu-kvm apt-transport-https grub-customizer gimp ^gnome-tweak -y
 sudo usermod -a -G kvm $SUDO_USER
 
 #new ppa/repo adds
@@ -72,18 +73,12 @@ sudo add-apt-repository ppa:nilarimogard/webupd8 -y #woeusb
 sudo add-apt-repository ppa:unit193/encryption -y #veracrypt
 sudo apt-add-repository ppa:maarten-fonville/android-studio -y #android studio
 sudo add-apt-repository ppa:papirus/papirus -y #papirus icons
-sudo add-apt-repository ppa:otto-kesselgulasch/gimp -y #more recent GIMP versions
 sudo add-apt-repository ppa:tista/plata-theme -y #plata theme
 sudo add-apt-repository ppa:andreasbutti/xournalpp-master -y #Xournal++n
 sudo add-apt-repository ppa:appimagelauncher-team/stable -y #AppImageLauncher
 
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - #sublime pub key
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-
-# Download the Microsoft repository GPG keys
-wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
-# Register the Microsoft repository GPG keys
-sudo dpkg -i packages-microsoft-prod.deb
 
 #Signal messenger
 curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
@@ -100,8 +95,6 @@ sudo apt-get update
 sudo apt-get install woeusb -y
 sudo apt-get install android-studio -y
 sudo apt-get install papirus-icon-theme
-sudo apt-get install powershell -y
-sudo apt-get install gimp -y
 sudo apt-get install codium -y
 sudo apt-get install veracrypt -y
 sudo apt-get install signal-desktop -y
