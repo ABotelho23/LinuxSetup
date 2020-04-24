@@ -28,8 +28,8 @@ sudo apt autoremove -y
 #Remove Ubuntu dock
 sudo rm -R /usr/share/gnome-shell/extensions/desktop-icons@csoriano
 sudo rm -R /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com
-rm -R ~/.local/share/gnome-shell/extensions/desktop-icons@csoriano
-rm -R ~/.local/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com
+rm -R /home/$SUDO_USER/.local/share/gnome-shell/extensions/desktop-icons@csoriano
+rm -R /home/$SUDO_USER/.local/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com
 
 #Install other Gnome extensions
 sudo apt install bash curl dbus perl -y
