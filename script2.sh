@@ -211,7 +211,7 @@ sudo dpkg-reconfigure wireshark-common
 sudo usermod -a -G wireshark $SUDO_USER
 
 #MS fonts
-sudo apt-get install ttf-mscorefonts-installer
+sudo apt-get install ttf-mscorefonts-installer -y
 sudo fc-cache -f -v
 
 #tilix fix
