@@ -114,22 +114,6 @@ sudo apt-get install appimagelauncher -y
 #StartupWMClass=Signal
 #Categories=Network;' | sudo tee /usr/share/applications/signal-desktop.desktop
 
-#Install Gnome extensions
-sudo su
-wget https://extensions.gnome.org/extension-data/user-themegnome-shell-extensions.gcampax.github.com.v40.shell-extension.zip 
-gnome-extensions install user-themegnome-shell-extensions.gcampax.github.com.v40.shell-extension.zip
-gnome-extensions enable user-theme@gnome-shell-extensions.gcampax.github.com
-
-wget https://extensions.gnome.org/extension-data/gsconnectandyholmes.github.io.v37.shell-extension.zip
-gnome-extensions install gsconnectandyholmes.github.io.v37.shell-extension.zip
-gnome-extensions enable gsconnect@andyholmes.github.io
-
-wget https://extensions.gnome.org/extension-data/openweather-extensionjenslody.de.v102.shell-extension.zip
-gnome-extensions install openweather-extensionjenslody.de.v102.shell-extension.zip
-gnome-extensions enable openweather-extension@jenslody.de
-
-exit
-
 mkdir /home/$SUDO_USER/.config/autostart
 sudo chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config
 cp /usr/share/applications/signal-desktop.desktop /home/$SUDO_USER/.config/autostart/signal-desktop.desktop #enable signal autostart
@@ -148,7 +132,8 @@ sudo gdebi ./deb/androidmessages.deb -n
 #Bitwarden
 wget --show-progress "https://vault.bitwarden.com/download/?app=desktop&platform=linux" -O ./deb/bitwarden.appimage
 chmod +x ./deb/bitwarden.appimage
-sudo ail-cli integrate bitwarden.appimage
+sudo mkdir /opt/bitwarden
+sudo cp ./deb/bitwarden.appimage /opt/bitwarden/bitwarden.appimage
 
 #Flutter SDK
 wget --show-progress "https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.12.13+hotfix.5-stable.tar.xz" -O ./deb/fluttersdk.tar.xz
