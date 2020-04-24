@@ -35,13 +35,11 @@ rm -R ~/.local/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com
 sudo apt install bash curl dbus perl -y
 wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
 chmod +x gnome-shell-extension-installer
-./gnome-shell-extension-installer 307 3.36 #Dash to Dock
-./gnome-shell-extension-installer 750 3.36 #OpenWeather
-./gnome-shell-extension-installer 1036 3.34 #Extensions
-./gnome-shell-extension-installer 19 3.36 #User Themes
-./gnome-shell-extension-installer 1228 3.36 #Arc Menu
-
-sudo cp -R /usr/share/gnome-shell/extensions/* /home/$SUDO_USER/.local/share/gnome-shell/extensions/
+sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 307 3.36 #Dash to Dock
+sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 750 3.36 #OpenWeather
+sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 1036 3.34 #Extensions
+sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 19 3.36 #User Themes
+sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 1228 3.36 #Arc Menu
 
 echo "Please ensure to run script2.sh upon reboot."
 
