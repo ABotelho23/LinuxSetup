@@ -41,6 +41,8 @@ chmod +x gnome-shell-extension-installer
 ./gnome-shell-extension-installer 19 3.36 #User Themes
 ./gnome-shell-extension-installer 1228 3.36 #Arc Menu
 
+sudo cp -R /usr/share/gnome-shell/extensions/* /home/$SUDO_USER/.local/share/gnome-shell/extensions/
+
 echo "Please ensure to run script2.sh upon reboot."
 
 #prompt
