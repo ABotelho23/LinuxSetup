@@ -28,9 +28,18 @@ sudo apt autoremove -y
 #Remove Ubuntu dock
 sudo rm -R /usr/share/gnome-shell/extensions/desktop-icons@csoriano
 sudo rm -R /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com
-sudo rm -R /home/$SUDO_USER/.local/share/gnome-shell/extensions/desktop-icons@csoriano
-sudo rm -R /home/$SUDO_USER/.local/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com
+rm -R ~/.local/share/gnome-shell/extensions/desktop-icons@csoriano
+rm -R ~/.local/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com
 
+#Install other Gnome extensions
+sudo apt install bash curl dbus perl -y
+wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
+chmod +x gnome-shell-extension-installer
+sudo ./gnome-shell-extension-installer 307 3.36 #Dash to Dock
+sudo ./gnome-shell-extension-installer 750 3.36 #OpenWeather
+sudo ./gnome-shell-extension-installer 1036 3.34 #Extensions
+sudo ./gnome-shell-extension-installer 19 3.36 #User Themes
+sudo ./gnome-shell-extension-installer 1228 3.36 #Arc Menu
 
 echo "Please ensure to run script2.sh upon reboot."
 
