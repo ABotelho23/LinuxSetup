@@ -307,7 +307,7 @@ fi
 fi
 
 #clean up
-sudo apt remove imagemagick -y
+sudo rm /usr/share/applications/display-im6.q16.desktop
 sudo apt autoremove && sudo apt clean
 if [[ "$autosign" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
