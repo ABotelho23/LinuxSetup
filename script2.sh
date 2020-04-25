@@ -103,16 +103,16 @@ sudo apt-get install xournalpp -y
 sudo apt-get install sublime-text -y
 sudo apt-get install appimagelauncher -y
 
-#signal takes some tweaking
-#echo '[Desktop Entry]
-#Name=Signal
-#Comment=Private messaging from your desktop
-#Exec=env XDG_CURRENT_DESKTOP=Unity signal-desktop %U --start-in-tray
-#Terminal=false
-#Type=Application
-#Icon=signal-desktop
-#StartupWMClass=Signal
-#Categories=Network;' | sudo tee /usr/share/applications/signal-desktop.desktop
+signal takes some tweaking
+echo '[Desktop Entry]
+Name=Signal
+Comment=Private messaging from your desktop
+Exec=env XDG_CURRENT_DESKTOP=Unity signal-desktop %U --start-in-tray
+Terminal=false
+Type=Application
+Icon=signal-desktop
+StartupWMClass=Signal
+Categories=Network;' | sudo tee /usr/share/applications/signal-desktop.desktop
 
 mkdir /home/$SUDO_USER/.config/autostart
 sudo chown -R $SUDO_USER:$SUDO_USER /home/$SUDO_USER/.config
