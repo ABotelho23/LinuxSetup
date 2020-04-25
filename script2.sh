@@ -307,7 +307,7 @@ fi
 fi
 
 #clean up
-sudo apt remove imagemagick
+sudo apt remove imagemagick -y
 sudo apt autoremove && sudo apt clean
 if [[ "$autosign" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
