@@ -55,7 +55,7 @@ sudo apt-get upgrade -y
 
 #removals
 sudo apt-get install tilix -y
-sudo apt-get remove byobu gnome-terminal -y
+sudo apt-get remove byobu gnome-terminal evince eog -y
 sudo apt autoremove -y #clean up after removals
 
 #installs
@@ -63,7 +63,7 @@ sudo apt-get install tilix asunder audacity deluge gnome-disk-utility gnome-syst
 sudo apt-get install gdebi inkscape libreoffice gcc make perl python3 psensor okular wireguard -y
 sudo apt-get install vlc nomacs virtualbox thunderbird ^fonts-roboto- wine-stable p7zip-full traceroute -y
 sudo apt-get install openjdk-11-jdk openjdk-11-jre ^network-manager neofetch curl cifs-utils lame -y
-sudo apt-get install ffmpeg cups adb fastboot exfat-utils exfat-fuse openssh-server blender avahi-discover ffmpegthumbnailer -y
+sudo apt-get install ffmpeg cups adb fastboot exfat-utils openssh-server blender avahi-discover ffmpegthumbnailer -y
 sudo apt-get install easytag mosh nut system-config-printer gnome-calculator gnome-screenshot hunspell-en-ca fonts-noto-color-emoji -y
 sudo apt-get install seahorse qemu-kvm apt-transport-https grub-customizer gimp ^gnome-tweak -y
 sudo usermod -a -G kvm $SUDO_USER
@@ -74,7 +74,7 @@ sudo add-apt-repository ppa:unit193/encryption -y #veracrypt
 sudo apt-add-repository ppa:maarten-fonville/android-studio -y #android studio
 sudo add-apt-repository ppa:papirus/papirus -y #papirus icons
 sudo add-apt-repository ppa:tista/plata-theme -y #plata theme
-sudo add-apt-repository ppa:andreasbutti/xournalpp-master -y #Xournal++n
+sudo add-apt-repository ppa:andreasbutti/xournalpp-master -y #Xournal++
 sudo add-apt-repository ppa:appimagelauncher-team/stable -y #AppImageLauncher
 
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - #sublime pub key
@@ -136,7 +136,7 @@ sudo mkdir /opt/bitwarden
 sudo cp ./deb/bitwarden.appimage /opt/bitwarden/bitwarden.appimage
 
 #Flutter SDK
-wget --show-progress "https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.12.13+hotfix.5-stable.tar.xz" -O ./deb/fluttersdk.tar.xz
+wget --show-progress "https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.12.13+hotfix.9-stable.tar.xz" -O ./deb/fluttersdk.tar.xz
 tar xf ./deb/fluttersdk.tar.xz
 sudo cp -R ./flutter /opt
 export PATH="$PATH:/opt/flutter/bin"
@@ -146,10 +146,10 @@ flutter precache
 #check if installs insync
 if [ $INSYNC = "yes" ]; then
     echo "Insync install selected. Installing."
-    wget --show-progress "https://d2t3ff60b2tol4.cloudfront.net/builds/insync_3.0.27.40677-bionic_amd64.deb" -O ./deb/insync.deb
+    wget --show-progress "https://d2t3ff60b2tol4.cloudfront.net/builds/insync_3.1.4.40797-bionic_amd64.deb" -O ./deb/insync.deb
     sudo gdebi ./deb/insync.deb -n
     sudo apt-get update
-    sudo apt-get install insync-nemo -y
+    sudo apt-get install insync-nautilus -y
 else
 	echo "Insync install not selected. Skipping..."
 fi
@@ -158,14 +158,12 @@ fi
 if [ $OPENRAZER = "yes" ]; then
     echo "OpenRazer install selected. Installing."
     sudo add-apt-repository ppa:openrazer/stable -y
-	sudo add-apt-repository ppa:lah7/polychromatic -y
-
-	sudo apt-get update
-
-	sudo apt install openrazer-meta -y
-	sudo apt install polychromatic -y
-	sudo gpasswd -a $SUDO_USER plugdev
-	sudo gpasswd -a $USER plugdev
+    sudo add-apt-repository ppa:polychromatic/stable -y
+    sudo apt-get update
+    sudo apt install openrazer -y
+    sudo apt install polychromatic -y
+    sudo gpasswd -a $SUDO_USER plugdev
+    sudo gpasswd -a $USER plugdev
 else
 	echo "Openrazer/Polychromatic install not selected. Skipping..."
 fi
@@ -309,6 +307,7 @@ fi
 fi
 
 #clean up
+sudo apt remove imagemagick
 sudo apt autoremove && sudo apt clean
 if [[ "$autosign" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
