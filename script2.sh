@@ -160,7 +160,7 @@ if [ $OPENRAZER = "yes" ]; then
     sudo add-apt-repository ppa:openrazer/stable -y
     sudo add-apt-repository ppa:polychromatic/stable -y
     sudo apt-get update
-    sudo apt install openrazer -y
+    sudo apt install openrazer-meta -y
     sudo apt install polychromatic -y
     sudo gpasswd -a $SUDO_USER plugdev
     sudo gpasswd -a $USER plugdev
