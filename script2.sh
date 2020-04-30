@@ -234,7 +234,6 @@ sudo openssl req -new -x509 -newkey rsa:2048 -keyout /root/MOK.priv -outform DER
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n vboxdrv)
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n vboxnetadp)
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n vboxnetflt)
-sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n vboxpci)
 
 if [ $OPENRAZER = "yes" ]; then
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razerkbd)
@@ -256,7 +255,6 @@ fi
 tail $(modinfo -n vboxdrv) | grep "Module signature appended"
 tail $(modinfo -n vboxnetadp) | grep "Module signature appended"
 tail $(modinfo -n vboxnetflt) | grep "Module signature appended"
-tail $(modinfo -n vboxpci) | grep "Module signature appended"
 
 if [ $OPENRAZER = "yes" ]; then
 tail $(modinfo -n razerkbd) | grep "Module signature appended"
