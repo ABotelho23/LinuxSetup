@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Bitwarden
+Comment=A secure and free password manager for all of your devices.
+Exec="/opt/bitwarden/bitwarden.appimage" %U
+Terminal=false
+Type=Application
+Icon=/usr/share/icons/Bitwarden.png
+StartupWMClass=Bitwarden
+Categories=Utility;
+X-AppImage-BuildId=1IN24goKEzaFoO2SuKIV1Mfz2MM
+TryExec=/opt/bitwarden/bitwarden.appimage

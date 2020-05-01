@@ -1,0 +1,9 @@
+[Plymouth Theme]
+Name=Spinfinity Custom
+Description=Simple theme that shows a rotating infinity sign in the center of the screen
+ModuleName=throbgress
+
+[throbgress]
+ImageDir=/usr/share/plymouth/themes/spinfinity-custom
+BackgroundStartColor=0x2e2e2e
+BackgroundEndColor=0x2e2e2e
