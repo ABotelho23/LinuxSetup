@@ -33,14 +33,6 @@ else
 CKB="no"
 fi
 
-read -r -p "Install Nvidia graphics driver? [y/N] " response
-if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
-then
-NVIDIA="yes"
-else
-NVIDIA="no"
-fi
-
 #autosign
 read -r -p "Auto-sign DKMS modules that are installed by this script? " autosign
 
@@ -176,15 +168,6 @@ else
 	echo "CKB-next install not selected. Continuing..."
 fi
 
-if [ $NVIDIA = "yes" ]; then
-    echo "Nvidia graphics driver install selected. Installing."
-    sudo add-apt-repository ppa:graphics-drivers/ppa -y
-    sudo apt-get update
-    sudo apt nvidia-graphics-drivers-440 -y
-else
-	echo "Nvidia graphics driver install not selected. Skipping..."
-fi
-
 #setup Hangouts and Google Keep
 sudo cp -R ./DesktopFiles/* /usr/share/applications
 sudo mv /usr/share/applications/appimagekit-bitwarden.desktop /home/$SUDO_USER/.local/share/applications/appimagekit-bitwarden.desktop
@@ -244,13 +227,6 @@ sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv 
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razercore)
 fi
 
-if [ $NVIDIA = "yes" ]; then
-sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n nvidia)
-sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n nvidia-modeset)
-sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n nvidia-drm)
-sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n nvidia-uvm)
-fi
-
 #check modules are signed
 tail $(modinfo -n vboxdrv) | grep "Module signature appended"
 tail $(modinfo -n vboxnetadp) | grep "Module signature appended"
@@ -263,13 +239,6 @@ tail $(modinfo -n razermousemat) | grep "Module signature appended"
 tail $(modinfo -n razerkraken) | grep "Module signature appended"
 tail $(modinfo -n razermug) | grep "Module signature appended"
 tail $(modinfo -n razercore) | grep "Module signature appended"
-fi
-
-if [ $NVIDIA = "yes" ]; then
-tail $(modinfo -n nvidia) | grep "Module signature appended"
-tail $(modinfo -n nvidia-modeset) | grep "Module signature appended"
-tail $(modinfo -n nvidia-drm) | grep "Module signature appended"
-tail $(modinfo -n nvidia-uvm) | grep "Module signature appended"
 fi
 
 #enroll the key
@@ -296,12 +265,6 @@ sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/virtualbox.conf
 
 if [ $OPENRAZER = "yes" ]; then
 sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/openrazer-driver.conf
-fi
-
-if [ $NVIDIA = "yes" ]; then
-sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/nvidia.conf
-fi
-
 fi
 
 #clean up
