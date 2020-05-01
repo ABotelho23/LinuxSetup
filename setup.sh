@@ -2,7 +2,7 @@
 echo "This script will update your system."
 echo "This script will install a large amount of software."
 echo "This script will only remove a handful of applications."
-echo "Please remove linuxsetup folder once script2.sh has finished running."
+echo "Please remove linuxsetup folder once setup.sh has finished running."
 
 #prompt
 read -r -p "Are you sure you want to run this script? [y/N] " response
@@ -34,7 +34,7 @@ CKB="no"
 fi
 
 #autosign
-read -r -p "Auto-sign DKMS modules that are installed by this script? " autosign
+read -r -p "Auto-sign DKMS modules that are installed by this script? [y/N] " autosign
 
 echo "Starting script! Please do not stop this script once it has started."
 
@@ -54,17 +54,18 @@ sudo apt autoremove -y #clean up after removals
 sudo apt-get install tilix asunder audacity deluge gnome-disk-utility gnome-system-monitor gparted net-tools putty redshift -y
 sudo apt-get install gdebi inkscape libreoffice gcc make perl python3 psensor okular wireguard -y
 sudo apt-get install vlc nomacs virtualbox thunderbird ^fonts-roboto- wine-stable p7zip-full traceroute -y
-sudo apt-get install openjdk-11-jdk openjdk-11-jre ^network-manager neofetch curl cifs-utils lame -y
+sudo apt-get install openjdk-11-jdk openjdk-11-jre neofetch curl cifs-utils lame -y
 sudo apt-get install ffmpeg cups adb fastboot exfat-utils openssh-server blender avahi-discover ffmpegthumbnailer -y
 sudo apt-get install easytag mosh nut system-config-printer gnome-calculator gnome-screenshot hunspell-en-ca fonts-noto-color-emoji -y
-sudo apt-get install seahorse qemu-kvm apt-transport-https grub-customizer gimp ^gnome-tweak -y
+sudo apt-get install seahorse qemu-kvm apt-transport-https grub-customizer gimp gnome-tweaks software-properties-common -y
+sudo apt-get install gnome-shell-extension-no-annoyance -y
+sudo apt-get install network-manager-openvpn-gnome network-manager-openconnect-gnome network-manager-l2tp-gnome network-manager-iodine-gnome network-manager-config-connectivity-pop -y
 sudo usermod -a -G kvm $SUDO_USER
 
 #new ppa/repo adds
 sudo add-apt-repository ppa:nilarimogard/webupd8 -y #woeusb
 sudo add-apt-repository ppa:unit193/encryption -y #veracrypt
 sudo apt-add-repository ppa:maarten-fonville/android-studio -y #android studio
-sudo add-apt-repository ppa:papirus/papirus -y #papirus icons
 sudo add-apt-repository ppa:tista/plata-theme -y #plata theme
 sudo add-apt-repository ppa:andreasbutti/xournalpp-master -y #Xournal++
 sudo add-apt-repository ppa:appimagelauncher-team/stable -y #AppImageLauncher
@@ -86,7 +87,6 @@ sudo apt-get update
 #new ppa/repo installs
 sudo apt-get install woeusb -y
 sudo apt-get install android-studio -y
-sudo apt-get install papirus-icon-theme
 sudo apt-get install codium -y
 sudo apt-get install veracrypt -y
 sudo apt-get install signal-desktop -y
@@ -99,7 +99,7 @@ signal takes some tweaking
 echo '[Desktop Entry]
 Name=Signal
 Comment=Private messaging from your desktop
-Exec=env XDG_CURRENT_DESKTOP=Unity signal-desktop %U --start-in-tray
+signal-desktop %U --start-in-tray
 Terminal=false
 Type=Application
 Icon=signal-desktop
@@ -170,7 +170,6 @@ fi
 
 #setup Hangouts and Google Keep
 sudo cp -R ./DesktopFiles/* /usr/share/applications
-sudo mv /usr/share/applications/appimagekit-bitwarden.desktop /home/$SUDO_USER/.local/share/applications/appimagekit-bitwarden.desktop
 sudo cp -R ./icons/* /usr/share/icons
 sudo rm /usr/share/applications/android-messages-desktop.desktop
 
