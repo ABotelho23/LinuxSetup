@@ -267,6 +267,15 @@ if [ $OPENRAZER = "yes" ]; then
 sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/openrazer-driver.conf
 fi
 
+#Install other Gnome extensions
+sudo apt install bash curl dbus perl -y
+wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
+chmod +x gnome-shell-extension-installer
+sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 307 3.36 #Dash to Dock
+sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 750 3.36 #OpenWeather
+sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 1036 3.34 #Extensions
+sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 19 3.36 #User Themes
+
 #clean up
 sudo rm /usr/share/applications/display-im6.q16.desktop
 sudo apt autoremove && sudo apt clean
