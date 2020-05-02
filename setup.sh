@@ -34,9 +34,7 @@ CKB="no"
 fi
 
 #autosign
-read -r -p "Auto-sign DKMS modules that are installed by this script? BROKEN FOR POP!_OS [y/N] " autosign
-#temp
-autosign="no"
+read -r -p "Auto-sign DKMS modules that are installed by this script? [y/N] " autosign
 
 echo "Starting script! Please do not stop this script once it has started."
 
@@ -266,8 +264,6 @@ sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/virtualbox.conf
 
 if [ $OPENRAZER = "yes" ]; then
 sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/openrazer-driver.conf
-fi
-
 fi
 
 #Install other Gnome extensions
