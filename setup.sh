@@ -342,6 +342,7 @@ sudo systemctl disable pppd-dns.service
 sudo apt install gnome-software -y
 sudo apt remove gnome-software-plugin-snap -y
 sudo apt remove --purge snapd -y
+sudo apt-mark hold snap
 
 #cleanup packages
 sudo apt autoremove -y
