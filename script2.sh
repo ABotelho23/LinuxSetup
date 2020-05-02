@@ -62,15 +62,19 @@ sudo apt-get install tilix -y
 sudo apt-get remove byobu gnome-terminal evince eog -y
 sudo apt autoremove -y #clean up after removals
 
+
 #installs
 sudo apt-get install tilix asunder audacity deluge gnome-disk-utility gnome-system-monitor gparted net-tools putty redshift -y
 sudo apt-get install gdebi inkscape libreoffice gcc make perl python3 psensor okular wireguard -y
 sudo apt-get install vlc nomacs virtualbox thunderbird ^fonts-roboto- wine-stable p7zip-full traceroute -y
-sudo apt-get install openjdk-11-jdk openjdk-11-jre ^network-manager neofetch curl cifs-utils lame -y
+sudo apt-get install openjdk-11-jdk openjdk-11-jre neofetch curl cifs-utils lame -y
 sudo apt-get install ffmpeg cups adb fastboot exfat-utils openssh-server blender avahi-discover ffmpegthumbnailer -y
 sudo apt-get install easytag mosh nut system-config-printer gnome-calculator gnome-screenshot hunspell-en-ca fonts-noto-color-emoji -y
-sudo apt-get install seahorse qemu-kvm apt-transport-https grub-customizer gimp ^gnome-tweak -y
+sudo apt-get install seahorse qemu-kvm apt-transport-https grub-customizer gimp gnome-tweaks software-properties-common -y
+sudo apt-get install gnome-shell-extension-no-annoyance -y
+sudo apt-get install network-manager-openvpn-gnome network-manager-openconnect-gnome network-manager-l2tp-gnome network-manager-iodine-gnome -y
 sudo usermod -a -G kvm $SUDO_USER
+
 
 #new ppa/repo adds
 sudo add-apt-repository ppa:nilarimogard/webupd8 -y #woeusb
