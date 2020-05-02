@@ -229,6 +229,9 @@ ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
 #neofetch at terminal start
 echo 'neofetch' >> /home/$SUDO_USER/.bashrc
 
+#purple background fix
+sudo update-alternatives --install /usr/share/gnome-shell/gdm3-theme.gresource gdm3-theme.gresource /usr/share/gnome-shell/gnome-shell-theme.gresource 100
+
 #Remove Ubuntu dock
 sudo rm -R /usr/share/gnome-shell/extensions/desktop-icons@csoriano
 sudo rm -R /usr/share/gnome-shell/extensions/ubuntu-dock@ubuntu.com
