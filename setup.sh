@@ -73,7 +73,6 @@ sudo apt-get install easytag mosh nut system-config-printer gnome-calculator gno
 sudo apt-get install seahorse qemu-kvm apt-transport-https grub-customizer gimp gnome-tweaks software-properties-common -y
 sudo apt-get install gnome-shell-extension-no-annoyance gnome-shell-extension-gsconnect gnome-shell-extension-gsconnect-browsers -y
 sudo apt-get install network-manager-openvpn-gnome network-manager-openconnect-gnome network-manager-l2tp-gnome network-manager-iodine-gnome -y
-sudo apt install sssd realmd sssd-tools libnss-sss libpam-sss adcli samba-common-bin -y
 sudo usermod -a -G kvm $SUDO_USER
 
 #new ppa/repo adds
@@ -84,9 +83,6 @@ sudo add-apt-repository ppa:papirus/papirus -y #papirus icons
 sudo add-apt-repository ppa:tista/plata-theme -y #plata theme
 sudo add-apt-repository ppa:andreasbutti/xournalpp-master -y #Xournal++
 sudo add-apt-repository ppa:appimagelauncher-team/stable -y #AppImageLauncher
-
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add - #sublime pub key
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 
 #Signal messenger
 curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
@@ -108,7 +104,6 @@ sudo apt-get install veracrypt -y
 sudo apt-get install signal-desktop -y
 sudo apt-get install plata-theme -y
 sudo apt-get install xournalpp -y
-sudo apt-get install sublime-text -y
 sudo apt-get install appimagelauncher -y
 
 signal takes some tweaking
