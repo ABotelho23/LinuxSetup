@@ -2,7 +2,7 @@
 echo "This script will update your system."
 echo "This script will install a large amount of software."
 echo "This script will only remove a handful of applications."
-echo "Please remove linuxsetup folder once script2.sh has finished running."
+echo "Please remove LinuxSetup folder once setup.sh has finished running."
 
 #prompt
 read -r -p "Are you sure you want to run this script? [y/N] " response
