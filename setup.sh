@@ -203,7 +203,6 @@ fi
 
 #setup Hangouts and Google Keep
 sudo cp -R ./DesktopFiles/* /usr/share/applications
-sudo mv /usr/share/applications/appimagekit-bitwarden.desktop /home/$SUDO_USER/.local/share/applications/appimagekit-bitwarden.desktop
 sudo cp -R ./icons/* /usr/share/icons
 sudo rm /usr/share/applications/android-messages-desktop.desktop
 
