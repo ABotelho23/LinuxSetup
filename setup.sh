@@ -256,6 +256,10 @@ sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 19 3.36 #User Themes
 sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 1218 3.36 #Printers
 sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 1128 3.22 #Hide Activities
 
+#testing this
+sudo mv /home/$SUDO_USER/.local/share/gnome-shell/extentions/* /usr/share/gnome-shell/extensions/
+sudo chmod 755 /usr/share/gnome-shell/extensions/*
+
 if [[ "$autosign" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
 #ensure openssl is installed
