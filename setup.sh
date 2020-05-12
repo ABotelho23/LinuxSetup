@@ -33,6 +33,14 @@ else
 CKB="no"
 fi
 
+read -r -p "Install Android Studio and Flutter SDK? [y/N] " response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
+then
+ASTUDIO="yes"
+else
+ASTUDIO="no"
+fi
+
 read -r -p "Install Nvidia graphics driver? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
@@ -78,7 +86,6 @@ sudo usermod -a -G kvm $SUDO_USER
 #new ppa/repo adds
 sudo add-apt-repository ppa:nilarimogard/webupd8 -y #woeusb
 sudo add-apt-repository ppa:unit193/encryption -y #veracrypt
-sudo apt-add-repository ppa:maarten-fonville/android-studio -y #android studio
 sudo add-apt-repository ppa:papirus/papirus -y #papirus icons
 sudo add-apt-repository ppa:tista/plata-theme -y #plata theme
 sudo add-apt-repository ppa:andreasbutti/xournalpp-master -y #Xournal++
@@ -97,7 +104,6 @@ sudo apt-get update
 
 #new ppa/repo installs
 sudo apt-get install woeusb -y
-sudo apt-get install android-studio -y
 sudo apt-get install papirus-icon-theme
 sudo apt-get install codium -y
 sudo apt-get install veracrypt -y
@@ -138,14 +144,6 @@ chmod +x ./deb/bitwarden.appimage
 sudo mkdir /opt/bitwarden
 sudo cp ./deb/bitwarden.appimage /opt/bitwarden/bitwarden.appimage
 
-#Flutter SDK
-wget --show-progress "https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.12.13+hotfix.9-stable.tar.xz" -O ./deb/fluttersdk.tar.xz
-tar xf ./deb/fluttersdk.tar.xz
-sudo cp -R ./flutter /opt
-export PATH="$PATH:/opt/flutter/bin"
-echo 'export PATH="$PATH":/opt/flutter/bin' >> ~/.bashrc
-flutter precache
-
 #check if installs insync
 if [ $INSYNC = "yes" ]; then
     echo "Insync install selected. Installing."
@@ -177,6 +175,21 @@ if [ $CKB = "yes" ]; then
     sudo apt install ckb-next -y
 else
 	echo "CKB-next install not selected. Continuing..."
+fi
+
+#check if installs Android Studio and Flutter SDK
+if [ $ASTUDIO = "yes" ]; then
+	sudo apt-add-repository ppa:maarten-fonville/android-studio -y #android studio
+	sudo apt-get install android-studio -y
+	#Flutter SDK
+	wget --show-progress "https://storage.googleapis.com/flutter_infra/releases/stable/linux/flutter_linux_v1.12.13+hotfix.9-stable.tar.xz" -O ./deb/fluttersdk.tar.xz
+	tar xf ./deb/fluttersdk.tar.xz
+	sudo cp -R ./flutter /opt
+	export PATH="$PATH:/opt/flutter/bin"
+	echo 'export PATH="$PATH":/opt/flutter/bin' >> ~/.bashrc
+	flutter precache
+else
+	echo "Android Studio and Flutter SDK install not selected. Skipping..."
 fi
 
 if [ $NVIDIA = "yes" ]; then
