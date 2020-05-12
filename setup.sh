@@ -74,7 +74,7 @@ sudo apt autoremove -y #clean up after removals
 #installs
 sudo apt-get install tilix asunder audacity deluge gnome-disk-utility gnome-system-monitor net-tools -y
 sudo apt-get install gdebi inkscape libreoffice gcc make perl python3 psensor okular wireguard -y
-sudo apt-get install vlc nomacs virtualbox thunderbird ^fonts-roboto- wine-stable p7zip-full traceroute -y
+sudo apt-get install vlc nomacs gnome-boxes thunderbird ^fonts-roboto- wine-stable p7zip-full traceroute -y
 sudo apt-get install openjdk-11-jdk openjdk-11-jre neofetch curl cifs-utils lame -y
 sudo apt-get install ffmpeg cups adb fastboot exfat-utils openssh-server blender avahi-discover ffmpegthumbnailer -y
 sudo apt-get install easytag mosh nut system-config-printer gnome-calculator gnome-screenshot hunspell-en-ca fonts-noto-color-emoji -y
@@ -267,10 +267,6 @@ sudo apt-get install openssl -y
 sudo openssl req -new -x509 -newkey rsa:2048 -keyout /root/MOK.priv -outform DER -out /root/MOK.der -nodes -days 36500 -subj "/CN=Descriptive common name/"
 
 #sign modules
-sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n vboxdrv)
-sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n vboxnetadp)
-sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n vboxnetflt)
-
 if [ $OPENRAZER = "yes" ]; then
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razerkbd)
 sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv /root/MOK.der $(modinfo -n razermouse)
@@ -288,10 +284,6 @@ sudo /usr/src/linux-headers-$(uname -r)/scripts/sign-file sha256 /root/MOK.priv 
 fi
 
 #check modules are signed
-tail $(modinfo -n vboxdrv) | grep "Module signature appended"
-tail $(modinfo -n vboxnetadp) | grep "Module signature appended"
-tail $(modinfo -n vboxnetflt) | grep "Module signature appended"
-
 if [ $OPENRAZER = "yes" ]; then
 tail $(modinfo -n razerkbd) | grep "Module signature appended"
 tail $(modinfo -n razermouse) | grep "Module signature appended"
@@ -327,8 +319,6 @@ for kernel_object in *ko; do
     mokutil --import /root/MOK.der
 done' | sudo tee -a /root/sign-kernel.sh
 sudo chmod +x /root/sign-kernel.sh
-
-sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/virtualbox.conf
 
 if [ $OPENRAZER = "yes" ]; then
 sudo ln -s /etc/dkms/sign-kernel-objects.conf /etc/dkms/openrazer-driver.conf
