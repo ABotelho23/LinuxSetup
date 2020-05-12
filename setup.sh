@@ -251,6 +251,8 @@ chmod +x gnome-shell-extension-installer
 sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 307 3.36 #Dash to Dock
 sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 19 3.36 #User Themes
 sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 1218 3.36 #Printers
+sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 7 3.36 #Removable Drive
+sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 8 3.36 #Places
 
 sudo apt install gnome-shell-extension-log-out-button gnome-shell-extension-weather gnome-shell-extension-prefs gnome-shell-extension-multi-monitors gnome-shell-extension-no-annoyance gnome-shell-extension-hide-activities gnome-shell-extension-gsconnect gnome-shell-extension-gsconnect-browsers gnome-shell-extension-appindicator gnome-shell-extension-caffeine -y
 
