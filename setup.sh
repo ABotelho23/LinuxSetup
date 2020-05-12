@@ -79,7 +79,6 @@ sudo apt-get install openjdk-11-jdk openjdk-11-jre neofetch curl cifs-utils lame
 sudo apt-get install ffmpeg cups adb fastboot exfat-utils openssh-server blender avahi-discover ffmpegthumbnailer -y
 sudo apt-get install easytag mosh nut system-config-printer gnome-calculator gnome-screenshot hunspell-en-ca fonts-noto-color-emoji -y
 sudo apt-get install seahorse qemu-kvm apt-transport-https grub-customizer gimp gnome-tweaks software-properties-common -y
-sudo apt-get install gnome-shell-extension-no-annoyance gnome-shell-extension-gsconnect gnome-shell-extension-gsconnect-browsers -y
 sudo apt-get install network-manager-openvpn-gnome network-manager-openconnect-gnome network-manager-l2tp-gnome network-manager-iodine-gnome -y
 sudo usermod -a -G kvm $SUDO_USER
 
@@ -250,11 +249,10 @@ sudo apt install bash curl dbus perl -y
 wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
 chmod +x gnome-shell-extension-installer
 sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 307 3.36 #Dash to Dock
-sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 750 3.36 #OpenWeather
-sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 1036 3.34 #Extensions
 sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 19 3.36 #User Themes
 sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 1218 3.36 #Printers
-sudo -u "$SUDO_USER" ./gnome-shell-extension-installer 1128 3.22 #Hide Activities
+
+sudo apt install gnome-shell-extension-log-out-button gnome-shell-extension-weather gnome-shell-extension-prefs gnome-shell-extension-multi-monitors gnome-shell-extension-no-annoyance gnome-shell-extension-hide-activities gnome-shell-extension-gsconnect gnome-shell-extension-gsconnect-browsers gnome-shell-extension-appindicator gnome-shell-extension-caffeine -y
 
 #testing this
 sudo mv /home/$SUDO_USER/.local/share/gnome-shell/extentions/* /usr/share/gnome-shell/extensions/
