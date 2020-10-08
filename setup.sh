@@ -29,8 +29,8 @@ sudo apt autoremove -y #clean up after removals
 
 
 #installs
-sudo apt-get install tilix audacity deluge gnome-disk-utility gnome-system-monitor net-tools -y
-sudo apt-get install gdebi inkscape libreoffice gcc make perl python3 psensor okular wireguard -y
+sudo apt-get install tilix audacity gnome-disk-utility gnome-system-monitor net-tools -y
+sudo apt-get install gdebi inkscape gcc make nextcloud-desktop nautilus-nextcloud perl python3 psensor okular wireguard -y
 sudo apt-get install vlc nomacs thunderbird ^fonts-roboto- p7zip-full -y
 sudo apt-get install openjdk-11-jdk openjdk-11-jre neofetch curl cifs-utils lame -y
 sudo apt-get install ffmpeg exfat-utils openssh-server ffmpegthumbnailer -y
@@ -46,6 +46,10 @@ sudo add-apt-repository ppa:papirus/papirus -y #papirus icons
 sudo add-apt-repository ppa:tista/plata-theme -y #plata theme
 sudo add-apt-repository ppa:andreasbutti/xournalpp-master -y #Xournal++
 sudo add-apt-repository ppa:appimagelauncher-team/stable -y #AppImageLauncher
+
+#OnlyOffice
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
+echo "deb https://download.onlyoffice.com/repo/debian squeeze main" | sudo tee -a /etc/apt/sources.list.d/onlyoffice.list
 
 #Signal messenger
 curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
@@ -80,21 +84,11 @@ cp /usr/share/applications/signal-desktop.desktop /home/$SUDO_USER/.config/autos
 #gdebi/wget installs
 mkdir deb
 
-#android messages
-wget --show-progress "https://github.com/chrisknepper/android-messages-desktop/releases/download/v3.1.0/android-messages-desktop_3.1.0_amd64.deb" -O ./deb/androidmessages.deb
-sudo gdebi ./deb/androidmessages.deb -n
-
 #Bitwarden
 wget --show-progress "https://vault.bitwarden.com/download/?app=desktop&platform=linux" -O ./deb/bitwarden.appimage
 chmod +x ./deb/bitwarden.appimage
 sudo mkdir /opt/bitwarden
 sudo cp ./deb/bitwarden.appimage /opt/bitwarden/bitwarden.appimage
-
-#setup Hangouts and Google Keep
-sudo cp -R ./DesktopFiles/* /usr/share/applications
-sudo mv /usr/share/applications/appimagekit-bitwarden.desktop /home/$SUDO_USER/.local/share/applications/appimagekit-bitwarden.desktop
-sudo cp -R ./icons/* /usr/share/icons
-sudo rm /usr/share/applications/android-messages-desktop.desktop
 
 #install Roboto mono
 sudo mkdir /usr/share/fonts/robotomono
