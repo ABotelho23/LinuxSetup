@@ -59,7 +59,8 @@ echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sud
 sudo apt-get update
 
 #new ppa/repo installs
-sudo apt-get install papirus-icon-theme
+sudo apt-get install onlyoffice-desktopeditors -y
+sudo apt-get install papirus-icon-theme -y
 sudo apt-get install veracrypt -y
 sudo apt-get install signal-desktop -y
 sudo apt-get install plata-theme -y
