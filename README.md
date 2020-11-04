@@ -2,6 +2,8 @@
 ### My personal script for setting up new Ubuntu installs.
 ### Designed to work on Ubuntu 20.04.
 
+## This repository has been archived on GitHub and moved to GitLab. Please see the project on GitLab.com: https://gitlab.com/ABotelho23/LinuxSetup
+
 Start by downloading the repository as a .zip using the green "Clone or download" on the top right.
 
 Extract the zipped contents. Open a terminal and navigate into the LinuxSetup folder.
